@@ -144,6 +144,7 @@ a{
 }
 
 .page-contents{
+    width: 100%;
     max-width: 60rem;
 
     display: flex;
@@ -333,57 +334,6 @@ a{
     }
 }
 
-// .nav-github{
-//     img{
-//         height: 32px;
-//         width: auto;
-//     }
-
-//     a{
-//         width: 50%;
-//         display: flex;
-//         padding: 0.7rem 0.5rem;
-
-//         &:first-of-type{
-//             justify-content: flex-end;
-//         }
-
-//         &:hover,
-//         &:focus{
-//             background-size: 58%;
-//         }
-//     }
-// }
-
-
-// .socials{
-//     display: flex;
-//     align-content: stretch;
-//     justify-content: center;
-
-//     box-sizing: border-box;
-
-//     img{
-//         height: 32px;
-//         width: auto;
-//     }
-
-//     a{
-//         width: 50%;
-//         display: flex;
-//         padding: 0.7rem 0.5rem;
-
-//         &:first-of-type{
-//             justify-content: flex-end;
-//         }
-
-//         &:hover,
-//         &:focus{
-//             background-size: 58%;
-//         }
-//     }
-// }  
-
 
 // || Main Sections
 .jumptarget{
@@ -398,6 +348,7 @@ a{
 
 .main-section{
     $g_section: linear-gradient(rgba(v.$c_darkest, 0.80) 0%, rgba(v.$c_darkest, 1) 2%, rgba(0,0,0, 0) 80%);
+    width: 100%;
 
     box-sizing: border-box;
     border-top: 1px solid v.$c_darkest;
