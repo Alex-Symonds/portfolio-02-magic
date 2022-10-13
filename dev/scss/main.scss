@@ -78,6 +78,8 @@ a{
     }
 }
 
+[hidden] { display: none !important; }
+
 // Mixins
 @mixin visually-hidden{
     position: absolute;
@@ -105,6 +107,8 @@ a{
     background-image: url(../images/beam-sparkles.png);
     background-size: 65%;
 }
+
+
 
 
 
@@ -159,7 +163,7 @@ a{
 }
 
 // || Navigation
-.nav-container{
+.top-bar{
     position: fixed;
     width: 100%;
     min-width: 100%;
@@ -173,7 +177,7 @@ a{
     box-shadow: 0 0 2rem 0.5rem black;
 }
 
-.nav-bar{
+.top-bar-contents{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -217,12 +221,49 @@ a{
           );
     }
 
+    
+    &:focus{
+        outline-width: 1px;
+        outline-style: dotted;
+        outline-color: v.$c_mid;
+        outline-offset: 0.3rem;
+    }
+
     span{
         @include visually-hidden;
     }
 }
 
 .menu-items-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+    "nav1 nav1"
+    "nav2 nav2"
+    "nav3 nav3"
+    "nav4-l nav4-r";
+
+    li:nth-of-type(1){
+        grid-area: nav1;
+    }
+    li:nth-of-type(2){
+        grid-area: nav2;
+    }
+    li:nth-of-type(3){
+        grid-area: nav3;
+    }
+    .nav-github{
+        grid-area: nav4-l;
+        a{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    .nav-linkedin{
+        grid-area: nav4-r;
+    }
+
     position: absolute;
     top: calc(3.4rem - 2px);
     right: 0;
@@ -235,16 +276,50 @@ a{
     border: 1px solid v.$c_darker;
     background: v.$c_background;
 
-    a{
-        color: v.$c_lightest;
-        font-size: 1.2rem;
-        padding: 0.7rem 1rem;
-        border-bottom: 1px solid v.$c_darker;
+    margin: 0;
+    padding: 0;
 
-        &:hover,
-        &:focus{
-            background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
-            background-size: 50%;
+    li{
+        list-style: none;
+        display: flex;
+        align-items: stretch;
+
+        a{
+            flex-grow: 2;
+
+            display: block;
+            color: v.$c_lightest;
+            font-size: 1.2rem;
+            
+            border-bottom: 1px solid v.$c_darker;
+    
+            padding: 0.7rem 1rem;  
+
+            &:hover,
+            &:focus{
+                background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
+                background-size: 50%;
+            }
+        }
+
+        &:focus-visible{
+            position: relative;
+            z-index: 4;
+            outline-width: 1px;
+            outline-style: dotted;
+            outline-color: v.$c_mid;
+            a{
+                background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
+                background-size: 50%;
+            }
+        }
+    }
+
+    li.nav-img{
+        a{
+            border: none;
+            font-size: 0.1rem;
+            line-height: 0.1rem;
         }
     }
 }
@@ -258,40 +333,56 @@ a{
     }
 }
 
-nav{
-    display: flex;
-    flex-direction: column;
+// .nav-github{
+//     img{
+//         height: 32px;
+//         width: auto;
+//     }
 
-    width: 100%;
-}
+//     a{
+//         width: 50%;
+//         display: flex;
+//         padding: 0.7rem 0.5rem;
 
-.socials{
-    display: flex;
-    align-content: stretch;
-    justify-content: center;
+//         &:first-of-type{
+//             justify-content: flex-end;
+//         }
 
-    box-sizing: border-box;
+//         &:hover,
+//         &:focus{
+//             background-size: 58%;
+//         }
+//     }
+// }
 
-    img{
-        height: 32px;
-        width: auto;
-    }
 
-    a{
-        width: 50%;
-        display: flex;
-        padding: 0.7rem 0.5rem;
+// .socials{
+//     display: flex;
+//     align-content: stretch;
+//     justify-content: center;
 
-        &:first-of-type{
-            justify-content: flex-end;
-        }
+//     box-sizing: border-box;
 
-        &:hover,
-        &:focus{
-            background-size: 58%;
-        }
-    }
-}  
+//     img{
+//         height: 32px;
+//         width: auto;
+//     }
+
+//     a{
+//         width: 50%;
+//         display: flex;
+//         padding: 0.7rem 0.5rem;
+
+//         &:first-of-type{
+//             justify-content: flex-end;
+//         }
+
+//         &:hover,
+//         &:focus{
+//             background-size: 58%;
+//         }
+//     }
+// }  
 
 
 // || Main Sections

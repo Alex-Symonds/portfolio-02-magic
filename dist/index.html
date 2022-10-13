@@ -16,36 +16,44 @@
     <body>
         <div class="whole-page-container">
 
-            <div class="nav-container">
+            <div class="top-bar">
+                <div class="top-bar-contents">
 
-                <div class="nav-bar">
                     <a class="logo hover-icon" href="#hero">
                         <img src="static/images/logo.svg" width="80px" />
                         <img src="static/images/logo-hover.svg" width="80px" />
                     </a>
 
-                    <button class="menu-icon"><span>menu</span></button>
-                    <div class="menu-items-container visually-hidden">
-                        <nav>
-                            <a href="#hero" class="top"><span>top</span></a>
-                            <a href="#projects"><span>projects</span></a>
-                            <a href="#about"><span>about me</span></a>
-                        </nav>
-                        <div class="socials">
-                            <a href="https://github.com/Alex-Symonds">
-                                <img src="static/images/GitHub-white.png" width="32px" alt="GitHub Link" />
-                            </a>
-                            <a href="#">
-                                <img src="static/images/linkedin-logo-white.png" width="32px" alt="LinkedIn Link" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                    <nav>
+                        <button class="menu-icon" aria-haspopup="true" aria-expanded="false" aria-controls="menu-items-container"><span>menu</span></button>
+                        <ul class="menu-items-container" hidden>
+                            <li class="top" tabindex="-1">
+                                <a href="#hero"><span>top</span></a>
+                            </li>
+                            <li tabindex="-1">
+                                <a href="#projects"><span>projects</span></a>
+                            </li>
+                            <li tabindex="-1">
+                                <a href="#about"><span>about me</span></a>
+                            </li>
+                            <li class="nav-github nav-img" tabindex="-1">
+                                <a href="https://github.com/Alex-Symonds">
+                                    <img src="static/images/GitHub-white.png" width="32px" alt="GitHub Link" />
+                                </a>
+                            </li>
+                            <li class="nav-linkedin nav-img" tabindex="-1">
+                                <a href="#">
+                                    <img src="static/images/linkedin-logo-white.png" width="32px" alt="LinkedIn Link" />
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
 
+                </div>
             </div>
 
-            <div class="page-contents">
 
+            <div class="page-contents">
 
                 <header id="hero">
                     <div class="hero-content">
