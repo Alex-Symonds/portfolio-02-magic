@@ -91,11 +91,8 @@ $card-info-side-spacing: 0.5rem;
 }
 
 .card-links{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 2rem;
-    grid-template-areas: "left right";
-
+    display: flex;
+    height: 2rem;
     width: 100%;
     margin: 0 0 0;
 
@@ -116,11 +113,7 @@ $card-info-side-spacing: 0.5rem;
 
         background: v.$c_darker;
 
-        &:first-of-type{
-            grid-area: left;
-        }
         &:nth-of-type(2){
-            grid-area: right;
             border-right: none;
         }
 
@@ -140,6 +133,5 @@ $card-info-side-spacing: 0.5rem;
     }
 
 }
-
 
 
