@@ -1,0 +1,172 @@
+@use 'variables.scss' as v;
+@use 'main.scss' as m;
+
+
+#hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+
+    width: 100%;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 16.6rem;
+
+    padding-bottom: 6rem;
+
+    background: v.$g_rune_glow;
+    position: relative;
+    &::before{
+        @include m.sparkles();
+    }
+    
+    .heading{
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+
+        margin-top: 10rem;
+
+        h1{
+            font-size: 2.25rem;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        .subheading{
+            font-family: Ubuntu, sans-serif; 
+            color: v.$c_mid;
+            font-size: 1.44rem;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+        }
+    }
+
+    .tagline{
+        font-size: 1rem;
+        margin-top: 2.25rem;
+        width: 80%;
+        max-width: 20rem;
+        text-align: center;
+
+        emphasis{
+            color: v.$c_lightest;
+            font-family: Roboto-Bold;
+        }
+    }
+}
+
+
+@mixin mask-rune{
+    mask-image: url(../images/rune-mask.svg);
+    -webkit-mask-image: url(../images/rune-mask.svg);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+}
+
+.rune-container{
+    display: block;
+    height: 9rem;
+    width: 100%;
+    max-width: 17rem;
+
+    position: relative;
+
+    overflow: hidden;
+
+    .rune-glow-bg{
+        content: '';
+        display: block;
+        width: 16.6rem;
+        height: 4.2rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: v.$g_rune_glow;
+        @include mask-rune();
+
+        &:before{
+            @include m.sparkles();
+            @include mask-rune();
+        }
+    }
+
+    .rune-perspective-view{
+        margin-top: -4.5rem;
+        perspective: 15rem;
+
+        .rune{
+            position: absolute;
+            top: 0;
+            left: calc(50% - 7.2rem);
+            transform: rotateX(100deg); 
+    
+            width: 14.4rem;
+            height: auto;
+        }
+
+    }
+}
+
+@media screen and (min-width: v.$breakpoint_wide_screen){
+    .hero-content{
+        max-width: 34rem;
+        height: 36rem;
+
+        &:before{
+            background-size: 100%;
+        }
+
+        .heading{
+            margin-top: 16.7rem;
+    
+            h1{
+                font-size: 3.8rem;
+            }
+            .subheading{
+                font-size: 2.34rem;
+
+                position: relative;
+                top: -0.18rem;
+            }
+        }
+    
+        .tagline{
+            font-size: 1.4rem;
+        }
+    }
+
+    .rune-container{
+        height: 17.1rem;
+        max-width: 39rem;
+    
+        .rune-glow-bg{
+            width: 34rem;
+            height: 13.4rem;
+            left: calc(50% - 17rem);
+
+            &:before{
+                background-size: 100%;
+            }
+        }
+    
+        .rune-perspective-view{
+            margin-top: -11rem;
+            perspective: 28rem; 
+
+            .rune{
+                left: calc(50% - 14.5rem);
+                width: 29rem;
+            }
+        }
+    }
+}

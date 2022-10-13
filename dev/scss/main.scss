@@ -1,0 +1,334 @@
+/*
+    Contains CSS rules for:
+        || Tags
+        || Page Layout
+        || Navigation
+        || Main Sections
+*/
+
+@use 'variables.scss' as v;
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf");
+} 
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("../fonts/Roboto-Bold.ttf");
+} 
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../fonts/Ubuntu-Regular.ttf");
+} 
+
+@font-face {
+    font-family: "ArchiD";
+    src: url("../fonts/ArchitectsDaughter-Regular.ttf");
+} 
+
+// || Tags
+body{
+    background: linear-gradient(v.$c_background 0%, #131b1d 50%, v.$c_background 100%);
+    font-family: Roboto, sans-serif;
+    color: v.$c_lighter;
+
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Note about z-index
+At time of writing, CSS standards allow a single element's background to be defined as both
+a solid colour and a background image, but not as a gradient and a background image.
+The glowy-sparkles effect uses a gradient for the "glowy" and an image for "sparkles", so 
+this requires use of layered pseudo elements.
+Of course, we don't want the pseudo elements blocking off copy/pasting. So, the plan:
+    > z-index 1 and 2 are for the glowy sparkles background/s
+    > z-index 3 and 4 are for whatever layering is needed for the actual content
+    > z-index 5 is for the fixed nav bar
+*/ 
+h1, h2, a, img, p, ul{
+    position: relative;
+    z-index: 3;
+}
+
+
+h1{
+    font-size: 1.8rem;
+    color: v.$c_lightest;
+    font-family: Ubuntu, sans-serif;
+    padding-bottom: 0.2rem;
+
+    font-family: Roboto, sans-serif;
+}
+
+h2{
+    color: v.$c_lightest;
+    font-family: Ubuntu, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+
+    &:focus{
+        outline: v.$c_bright dotted 1px;
+    }
+}
+
+// Mixins
+@mixin visually-hidden{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+@mixin sparkles{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    background-image: url(../images/beam-sparkles.png);
+    background-size: 65%;
+}
+
+
+
+.visually-hidden{
+    @include visually-hidden;
+}
+
+.hover-icon{
+    img:last-of-type{
+        display: none;
+    }
+    &:hover,
+    &:focus,
+    &:active{
+        img:first-of-type{
+            display: none;
+        }
+        img:last-of-type{
+            display: inline-block;
+        }
+    }
+}
+
+// || Page Layout
+.whole-page-container{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.page-contents{
+    max-width: 60rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+@media screen and (min-width: v.$breakpoint_wide_screen){
+    .page-contents{
+        gap: 5rem;
+    }
+}
+@media screen and (max-width: v.$breakpoint_min_supported){
+    .page-contents{
+        align-items: flex-start;
+    }
+}
+
+// || Navigation
+.nav-container{
+    position: fixed;
+    width: 100%;
+    min-width: 100%;
+    z-index: 5;
+
+    display: flex;
+    justify-content: center;
+
+    background: rgba(black, 80%);
+    border-bottom: 1px solid v.$c_darkest;
+    box-shadow: 0 0 2rem 0.5rem black;
+}
+
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 60rem;
+
+    padding: 0.2rem 1rem;
+
+    position: relative;
+}
+
+.menu-icon{
+    display: block;
+    padding: 0.2rem;
+    width: 1.8rem;
+    height: 1.5rem;
+
+    border-style: none;
+    outline-style: none;
+
+    background: linear-gradient(
+      to bottom, 
+      v.$c_lightest, v.$c_lightest 20%, 
+      transparent 20%, transparent 40%, 
+      v.$c_lightest 40%, v.$c_lightest 60%, 
+      transparent 60%, transparent 80%, 
+      v.$c_lightest 80%, v.$c_lightest 100%
+    );
+
+    &:hover,
+    &:focus,
+    &:active{
+        background: linear-gradient(
+            to bottom, 
+            v.$c_light, v.$c_light 20%, 
+            transparent 20%, transparent 40%, 
+            v.$c_light 40%, v.$c_light 60%, 
+            transparent 60%, transparent 80%, 
+            v.$c_light 80%, v.$c_light 100%
+          );
+    }
+
+    span{
+        @include visually-hidden;
+    }
+}
+
+.menu-items-container{
+    position: absolute;
+    top: calc(3.4rem - 2px);
+    right: 0;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+
+    border: 1px solid v.$c_darker;
+    background: v.$c_background;
+
+    a{
+        color: v.$c_lightest;
+        font-size: 1.2rem;
+        padding: 0.7rem 1rem;
+        border-bottom: 1px solid v.$c_darker;
+
+        &:hover,
+        &:focus{
+            background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
+            background-size: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .menu-items-container{
+        max-width: none;
+    }
+    .top{
+        @include visually-hidden;
+    }
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.socials{
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    img{
+        height: 32px;
+        width: auto;
+    }
+
+    a{
+        width: 50%;
+        display: flex;
+        padding: 0.7rem 0.5rem;
+
+        &:first-of-type{
+            justify-content: flex-end;
+        }
+
+        &:hover,
+        &:focus{
+            background-size: 58%;
+        }
+    }
+}  
+
+
+// || Main Sections
+.jumptarget{
+    scroll-margin-top: 4rem;
+
+    // The last jumptarget will appear partway down the screen (= undesirable) unless it's at least tall enough 
+    // to fill the screen vertically (excluding the nav bar). Ensure it's always tall enough.
+    &:last-of-type{
+        min-height: calc(100vh - 3.9rem);
+    }
+}
+
+.main-section{
+    $g_section: linear-gradient(rgba(v.$c_darkest, 0.80) 0%, rgba(v.$c_darkest, 1) 2%, rgba(0,0,0, 0) 80%);
+
+    box-sizing: border-box;
+    border-top: 1px solid v.$c_darkest;
+
+    position: relative;
+    &:before{
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+
+        background: $g_section;
+    }
+    &:after{
+        @include sparkles();
+        background-size: 45%;
+        mask-image: $g_section;
+        -webkit-mask-image: $g_section;
+    }
+}

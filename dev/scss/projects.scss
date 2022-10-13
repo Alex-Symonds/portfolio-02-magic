@@ -1,0 +1,126 @@
+@use 'variables.scss' as v;
+@use 'main.scss' as m;
+
+$card-info-side-spacing: 0.5rem;
+
+
+#projects{
+    padding: 0 1rem 0;
+
+    h1{
+        position: relative;
+        z-index: 3;
+    }
+}
+
+.project-card-container{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+
+    position: relative;
+    z-index: 3;
+}
+
+.card{
+    min-width: 260px;
+    width: 260px;
+    max-width: 260px;
+
+    border-radius: 0.3rem;
+    overflow: hidden;
+
+    border: 1px solid rgba(black, 1%);
+    background: v.$g_rune_glow_subtle;
+    box-shadow: 0 0 1.1rem 0.2rem rgba(black, 40%);
+
+    img{
+        display: block;
+    }
+}
+
+.card-heading{
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    padding: 0.6rem $card-info-side-spacing 0;
+    margin: 0 0;
+    background: rgba(black, 30%);
+}
+
+.card-description{
+    font-size: 1rem;
+    color: v.$c_lighter;
+    padding: 0.3rem $card-info-side-spacing 0.75rem;
+    margin: 0 0;
+    background: rgba(black, 30%);
+
+    height: 4rem;
+}
+
+.tech-icon-strip{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    box-sizing: border-box;
+    padding: 0.5rem $card-info-side-spacing 0.5rem;
+    width: 100%;
+
+    background-image: url(../images/beam-sparkles.png);
+    background-size: 80%;
+}
+
+.card-links{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 2rem;
+    grid-template-areas: "left right";
+
+    width: 100%;
+    margin: 0 0 0;
+
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0 $card-info-side-spacing;
+        box-sizing: border-box;
+
+        color: v.$c_lightest;
+        height: 100%;
+        width: 100%;
+        border-style: solid;
+        border-color: rgba(black, 20%);
+        border-width: 1px 1px 0 0;
+
+        background: v.$c_darker;
+
+        &:first-of-type{
+            grid-area: left;
+        }
+        &:nth-of-type(2){
+            grid-area: right;
+            border-right: none;
+        }
+
+        &:hover,
+        &:focus,
+        &:active{
+            background: url(../images/beam-sparkles-small.png) v.$c_darker_hover;
+        }
+        &:focus{
+            // Prevent the loss of the side of the outline next to the sibling link
+            position: relative;
+            z-index: 4;
+
+            // Prevent the loss of the sides of the outline up against the borders of the card (which has overflow: hidden)
+            outline-offset: -1px;
+        }
+    }
+
+}
+
+
+

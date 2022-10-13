@@ -1,0 +1,179 @@
+@use 'variables.scss' as v;
+@use 'main.scss' as m;
+
+
+#about{
+    width: 100%;
+    padding: 0 1rem 3rem;
+
+    // Prevent the glowy-sparkles around about-doodle from going outside the lines
+    overflow: hidden;
+
+    h2{
+
+        font-size: 1.2rem;
+        font-family: Roboto-Bold, sans-serif;
+        margin: 2rem 0 0 0;
+    }
+}
+
+.about-container{
+    position: relative;
+    z-index: 3;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "about-r1"
+        "about-r2"
+        "about-r3"
+        "doodle"
+    ;
+
+    .about-tagline{
+        grid-area: about-r1;
+    }
+    section:first-of-type{
+        grid-area: about-r2;
+    }
+    section:nth-of-type(2){
+        grid-area: about-r3;
+    }
+    .about-doodle{
+        grid-area: doodle;
+
+        justify-self: end;
+        align-self: end;
+
+        margin: 2rem 0 0 0;
+    }
+
+}
+@media screen and (min-width: 625px){
+    .about-container{
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "about-r1 about-r1"
+            "about-r2 ."
+            "about-r3 doodle"
+        ;
+    
+        .about-doodle{
+            margin: 0 2rem 2rem 0;
+        }
+    }
+}
+
+.about-tagline{
+    color: v.$c_lightest;
+    margin: 0 0.3rem;
+    padding: 0.9rem 0.4rem 0.8rem;
+
+    font-size: 1rem;
+
+    text-align: center;
+    background: v.$c_darker;  
+
+    box-shadow: 0 0 1.5rem 0.2rem rgba(black, 10%);
+}
+@media screen and (min-width: v.$breakpoint_wide_screen){
+    .about-tagline{
+        padding: 0.9rem 0.7rem;
+        font-size: 1.2rem;
+    }
+}
+
+.langtechlist{
+    margin-top: 0.5rem;
+    li{
+        padding: 0.15rem 0;
+    }
+}
+
+.aside-subheading{
+    font-family: ArchiD, sans-serif;
+    color: v.$c_bright;
+    padding: 0;
+    margin: 0;
+}
+
+.list-with-icons{
+    width: 16.1rem;
+    max-width: calc(100% - 0.8rem);
+    margin: 0.5rem 0 0 0.8rem;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1.9rem;
+}
+
+.list-with-icons-row{
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "connect-icon connect-text"
+    ;
+
+    .icon{
+        grid-area: connect-icon;
+        justify-self: center;
+        align-self: center;
+
+        line-height: 0;
+    }
+    .text{
+        grid-area: connect-text;
+        justify-self: start;
+        align-self: center;
+
+        margin-left: 0.5rem;
+    }
+}
+
+a.list-with-icons-row{
+    color: v.$c_lighter;
+
+    &:hover{
+        border-radius: 0.3rem;
+        color: v.$c_lightest;
+        background: rgba(v.$c_darker, 90%);
+    }
+}
+
+.about-doodle{
+    $g_background: radial-gradient(v.$c_darker 1px, v.$c_darkest 15%, transparent 70%);
+
+    position: relative;
+    &:before,
+    &:after{
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(-300px + 170px);
+        left: calc(-300px + 150px);
+        height: 600px;
+        width: 600px;
+        z-index: 1;
+    }
+    &:before{
+        background: $g_background;
+    }
+    &:after{
+        background: url(../images/beam-sparkles.png);
+        background-size: 65%;
+        mask-image: $g_background;
+        -webkit-mask-image: $g_background;
+    }
+}
+@media screen and (min-width: v.$breakpoint_wide_screen){
+    .about-doodle{
+        img{
+            width: 325px;
+        }
+    }
+}
+
+
