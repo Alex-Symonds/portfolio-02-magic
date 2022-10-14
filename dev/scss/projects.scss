@@ -62,6 +62,8 @@ $card-info-side-spacing: 0.5rem;
     font-size: 1.3rem;
     font-weight: bold;
 
+    height: 1.6rem;
+
     padding: 0.6rem $card-info-side-spacing 0;
     margin: 0 0;
     background: rgba(black, 30%);
@@ -69,7 +71,7 @@ $card-info-side-spacing: 0.5rem;
 
 .card-description{
     font-size: 1rem;
-    color: v.$c_lighter;
+    color: v.$c_mid;
     padding: 0.3rem $card-info-side-spacing 0.75rem;
     margin: 0 0;
     background: rgba(black, 30%);
@@ -88,6 +90,39 @@ $card-info-side-spacing: 0.5rem;
 
     background-image: url(../images/beam-sparkles.png);
     background-size: 80%;
+
+    .as-text{
+        @include m.visually-hidden;
+    }
+
+    position: relative;
+    &:hover{
+        .as-text{
+            @include m.visually-hidden-reset;
+            position: absolute;
+            top: 0;
+            left: 0.2rem;
+            transform: translateY(-90%);
+            box-shadow: 0 0 0.3rem 0.1rem black;
+
+            line-height: 1.2rem;
+
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: calc(260px - (0.2rem * 2));
+
+            box-sizing: border-box;
+            padding: 0.5rem;
+
+            background: v.$c_darkest;
+            border: 1px solid v.$c_darker;
+            border-radius: 0.3rem;
+
+            font-size: 0.95rem;
+            color: v.$c_lighter;
+        }
+    }
 }
 
 .card-links{

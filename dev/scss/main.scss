@@ -93,6 +93,18 @@ a{
     border: 0;
 }
 
+@mixin visually-hidden-reset{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clip: auto;
+    white-space: normal;
+    border: 0;
+}
+
 @mixin sparkles{
     content: '';
     display: block;
@@ -176,7 +188,7 @@ a{
     background: rgba(v.$c_background_nav, 85%);
     border-bottom: 1px solid v.$c_darkest;
     //box-shadow: 0 0 0.3rem 0.1rem rgba(v.$c_background_nav, 80%);
-    box-shadow: 0 0 2rem 0.5rem black;//rgba(v.$c_background_nav, 80%);
+    box-shadow: 0 0 2rem 0.5rem rgba(black, 0%);//rgba(v.$c_background_nav, 80%);
 }
 
 .top-bar-contents{
@@ -194,7 +206,7 @@ a{
 
 .menu-icon{
     $c_main: v.$c_lightest;
-    $c_hover: v.$c_mid;
+    $c_hover: v.$c_light;
 
     display: block;
     padding: 0.2rem;
@@ -229,7 +241,7 @@ a{
     &:focus{
         outline-width: 1px;
         outline-style: dotted;
-        outline-color: v.$c_mid;
+        outline-color: v.$c_light;
         outline-offset: 0.3rem;
     }
 
@@ -311,7 +323,7 @@ a{
             z-index: 4;
             outline-width: 1px;
             outline-style: dotted;
-            outline-color: v.$c_mid;
+            outline-color: v.$c_light;
             a{
                 background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
                 background-size: 50%;
