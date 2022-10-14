@@ -81,49 +81,54 @@ $card-info-side-spacing: 0.5rem;
 
 .tech-icon-strip{
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem;
 
     box-sizing: border-box;
     padding: 0.5rem $card-info-side-spacing 0.5rem;
+    height: 3.5rem;
     width: 100%;
 
     background-image: url(../images/beam-sparkles.png);
     background-size: 80%;
 
-    .as-text{
-        @include m.visually-hidden;
-    }
-
     position: relative;
-    &:hover{
-        .as-text{
-            @include m.visually-hidden-reset;
-            position: absolute;
-            top: 0;
-            left: 0.2rem;
-            transform: translateY(-90%);
-            box-shadow: 0 0 0.3rem 0.1rem black;
-
-            line-height: 1.2rem;
-
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: calc(260px - (0.2rem * 2));
-
-            box-sizing: border-box;
-            padding: 0.5rem;
-
-            background: v.$c_darkest;
-            border: 1px solid v.$c_darker;
-            border-radius: 0.3rem;
-
-            font-size: 0.95rem;
-            color: v.$c_lighter;
-        }
-    }
+    &:after{
+        content: '[ ? ]';
+        font-family: Calibri, sans-serif;
+        display: block;
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        font-size: 0.8rem;
+        color: v.$c_mid;
+    } 
 }
+
+.as-icons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+
+    align-self: center;
+}
+
+.as-text{
+    align-self: flex-start;
+
+    line-height: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-size: 0.8rem;
+    color: v.$c_lighter;
+}
+
 
 .card-links{
     display: flex;
