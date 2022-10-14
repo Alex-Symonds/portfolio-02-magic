@@ -173,9 +173,10 @@ a{
     display: flex;
     justify-content: center;
 
-    background: rgba(black, 80%);
+    background: rgba(v.$c_background_nav, 85%);
     border-bottom: 1px solid v.$c_darkest;
-    box-shadow: 0 0 2rem 0.5rem black;
+    //box-shadow: 0 0 0.3rem 0.1rem rgba(v.$c_background_nav, 80%);
+    box-shadow: 0 0 2rem 0.5rem black;//rgba(v.$c_background_nav, 80%);
 }
 
 .top-bar-contents{
@@ -192,6 +193,9 @@ a{
 }
 
 .menu-icon{
+    $c_main: v.$c_lightest;
+    $c_hover: v.$c_mid;
+
     display: block;
     padding: 0.2rem;
     width: 1.8rem;
@@ -202,11 +206,11 @@ a{
 
     background: linear-gradient(
       to bottom, 
-      v.$c_lightest, v.$c_lightest 20%, 
+      $c_main, $c_main 20%, 
       transparent 20%, transparent 40%, 
-      v.$c_lightest 40%, v.$c_lightest 60%, 
+      $c_main 40%, $c_main 60%, 
       transparent 60%, transparent 80%, 
-      v.$c_lightest 80%, v.$c_lightest 100%
+      $c_main 80%, $c_main 100%
     );
 
     &:hover,
@@ -214,15 +218,14 @@ a{
     &:active{
         background: linear-gradient(
             to bottom, 
-            v.$c_light, v.$c_light 20%, 
+            $c_hover, $c_hover 20%, 
             transparent 20%, transparent 40%, 
-            v.$c_light 40%, v.$c_light 60%, 
+            $c_hover 40%, $c_hover 60%, 
             transparent 60%, transparent 80%, 
-            v.$c_light 80%, v.$c_light 100%
+            $c_hover 80%, $c_hover 100%
           );
     }
 
-    
     &:focus{
         outline-width: 1px;
         outline-style: dotted;
@@ -321,6 +324,8 @@ a{
             border: none;
             font-size: 0.1rem;
             line-height: 0.1rem;
+
+            padding: 0.6rem 0.4rem;
         }
     }
 }
@@ -329,20 +334,17 @@ a{
     .menu-items-container{
         max-width: none;
     }
-    .top{
-        @include visually-hidden;
-    }
 }
 
 
 // || Main Sections
 .jumptarget{
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 3.4rem;
 
     // The last jumptarget will appear partway down the screen (= undesirable) unless it's at least tall enough 
     // to fill the screen vertically (excluding the nav bar). Ensure it's always tall enough.
     &:last-of-type{
-        min-height: calc(100vh - 3.9rem);
+        min-height: calc(100vh - 3.4rem);
     }
 }
 

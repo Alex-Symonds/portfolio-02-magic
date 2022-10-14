@@ -104,6 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     menu.open();
                 }
             });
+            menu.ele.addEventListener('click', () => {
+                if(!menu.ele.hidden){
+                    menu.close();
+                }
+            });
         }
     }
 
