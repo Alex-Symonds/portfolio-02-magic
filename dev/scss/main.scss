@@ -357,6 +357,10 @@ a{
     &:last-of-type{
         min-height: calc(100vh - 3.4rem);
     }
+
+    &:focus-visible{
+        outline-style: none;
+    }
 }
 
 .main-section{

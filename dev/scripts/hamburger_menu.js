@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.ele.hidden = true;
             menu.ele.removeEventListener('keydown', menu.handleKeydown);
             
-            menu.opener.focus();
             menu.selectedId = -1;
 
             menu.opener.setAttribute('aria-expanded', false);
@@ -58,14 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Enter and space
             else if(e.keyCode === 13 || e.keyCode === 32){
-                e.preventDefault(); // Prevent the enter from "clicking" the icon and reopening the menu
+                e.preventDefault(); // Prevent the enter from also "clicking" the icon and reopening the menu
                 document.activeElement.getElementsByTagName('a')[0].click();
                 menu.close();
             }
             // Up/down arrows
             else if(e.keyCode === 38 || e.keyCode === 40){
                 e.preventDefault(); // Prevent the website from scrolling distractingly in the background
-
                 var menuLis = menu.ele.getElementsByTagName('li');
                 var lastLiIndex = menuLis.length - 1;
 
