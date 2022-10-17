@@ -240,6 +240,9 @@ a{
         outline-color: v.$c_light;
         outline-offset: 0.3rem;
     }
+    &:focus:not(:focus-visible){
+        outline-style: none;
+    }
 
     span{
         @include visually-hidden;
