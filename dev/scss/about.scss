@@ -92,12 +92,27 @@
     }
 }
 
+.aside{
+    font-family: ArchiD, sans-serif;
+    color: v.$c_bright;    
+}
+p.aside{
+    padding: 0;
+    margin: 0;
+}
+
 .aside-subheading{
     font-family: ArchiD, sans-serif;
     color: v.$c_bright;
     padding: 0;
     margin: 0;
 }
+
+.de-emphasis{
+    color: v.$c_light;
+}
+
+
 
 .list-with-icons{
     width: 16.1rem;

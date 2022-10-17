@@ -50,7 +50,7 @@ $card-info-side-spacing: 0.5rem;
     overflow: hidden;
 
     border: 1px solid rgba(black, 1%);
-    background: v.$g_rune_glow_subtle;
+    background: v.$g_rune_glow_darker;
     box-shadow: 0 0 1.1rem 0.2rem rgba(black, 40%);
 
     img{
@@ -93,13 +93,13 @@ $card-info-side-spacing: 0.5rem;
     position: relative;
     &:after{
         content: '[ ? ]';
-        font-family: Calibri, sans-serif;
+        font-family: Roboto, sans-serif;
         display: block;
         position: absolute;
         bottom: 2px;
         right: 2px;
         font-size: 0.8rem;
-        color: v.$c_mid;
+        color: v.$c_text_subtle;
     } 
 }
 

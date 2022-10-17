@@ -97,12 +97,9 @@ a{
     position: relative;
     width: auto;
     height: auto;
-    padding: 0;
     margin: 0;
-    overflow: hidden;
     clip: auto;
     white-space: normal;
-    border: 0;
 }
 
 @mixin sparkles{
@@ -187,8 +184,7 @@ a{
 
     background: rgba(v.$c_background_nav, 85%);
     border-bottom: 1px solid v.$c_darkest;
-    //box-shadow: 0 0 0.3rem 0.1rem rgba(v.$c_background_nav, 80%);
-    box-shadow: 0 0 2rem 0.5rem rgba(black, 0%);//rgba(v.$c_background_nav, 80%);
+    box-shadow: 0 0 2rem 0.5rem rgba(black, 70%);
 }
 
 .top-bar-contents{

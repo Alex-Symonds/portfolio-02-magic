@@ -8,6 +8,7 @@
     align-items: center;  
 
     width: 100%;
+    padding-bottom: 3rem;
 }
 
 .hero-content{
@@ -65,8 +66,8 @@
 
 
 @mixin mask-rune{
-    mask-image: url(../images/rune-mask.svg);
-    -webkit-mask-image: url(../images/rune-mask.svg);
+    mask-image: url(../images/rune-mask-small.svg);
+    -webkit-mask-image: url(../images/rune-mask-small.svg);
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
     mask-size: cover;
@@ -75,33 +76,36 @@
 
 .rune-container{
     display: block;
-    height: 9rem;
+    height: 6rem;
     width: 100%;
     max-width: 17rem;
 
     position: relative;
-
     overflow: hidden;
 
-    .rune-glow-bg{
+    // The glow and sparkles must be masked so they don't "poke out" outside the arcane circle.
+    // Pseudo elements so the masks won't affect anything else.
+    &:before{
         content: '';
         display: block;
         width: 16.6rem;
-        height: 4.2rem;
+        height: 5.6rem;
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 0;
         background: v.$g_rune_glow;
         @include mask-rune();
-
-        &:before{
-            @include m.sparkles();
-            @include mask-rune();
-        }
+    }
+    &:after{
+        @include m.sparkles();
+        @include mask-rune();
+        width: 16.6rem;
+        height: 5.6rem;
     }
 
     .rune-perspective-view{
-        margin-top: -4.5rem;
+        margin-top: -5.5rem;
         perspective: 15rem;
 
         .rune{
@@ -149,14 +153,16 @@
         height: 17.1rem;
         max-width: 39rem;
     
-        .rune-glow-bg{
+        &:before,
+        &:after{
             width: 34rem;
             height: 13.4rem;
             left: calc(50% - 17rem);
-
-            &:before{
-                background-size: 100%;
-            }
+            mask-image: url(../images/rune-mask.svg);
+            -webkit-mask-image: url(../images/rune-mask.svg);
+        }
+        &:after{
+            background-size: 100%;
         }
     
         .rune-perspective-view{
