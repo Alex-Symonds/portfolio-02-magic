@@ -1,0 +1,11 @@
+{
+    "name": "Alex Symonds Portfolio",
+    "short_name": "Alex Symonds Portfolio",
+    "icons": [{
+        "src": "static/images/google-touch-icon.png",
+        "sizes": "512x512"
+    }],
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "fullscreen"
+}
