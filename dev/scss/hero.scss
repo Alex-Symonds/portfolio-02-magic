@@ -9,7 +9,7 @@
 
     width: 100%;
 
-    min-height: 54rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
+    min-height: 38.9rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
     height: 100vh;        // "Normally" #hero should be full-screen, pushing #projects off screen
     max-height: 1000px;   // Case: weirdly tall screen / zoomed out = allow all pages on screen at once
 }
@@ -125,6 +125,10 @@
 }
 
 @media screen and (min-width: v.$breakpoint_wide_screen){
+    #hero{
+        min-height: 54rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
+    }
+
     .hero-content{
         max-width: 34rem;
         height: 36rem;
