@@ -8,7 +8,10 @@
     align-items: center;  
 
     width: 100%;
-    padding-bottom: 3rem;
+
+    min-height: 54rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
+    height: 100vh;        // "Normally" #hero should be full-screen, pushing #projects off screen
+    max-height: 1000px;   // Case: weirdly tall screen / zoomed out = allow all pages on screen at once
 }
 
 .hero-content{
@@ -150,7 +153,7 @@
     }
 
     .rune-container{
-        height: 17.1rem;
+        height: 14.1rem;
         max-width: 39rem;
     
         &:before,
