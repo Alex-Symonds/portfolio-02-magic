@@ -59,10 +59,11 @@ $card-info-side-spacing: 0.5rem;
 }
 
 .card-heading{
+    height: 1.6rem;
+    -webkit-text-size-adjust: 100%;
+
     font-size: 1.3rem;
     font-weight: bold;
-
-    height: 1.6rem;
 
     padding: 0.6rem $card-info-side-spacing 0;
     margin: 0 0;
