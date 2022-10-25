@@ -53,31 +53,31 @@ $card-info-side-spacing: 0.5rem;
     background: v.$g_rune_glow_darker;
     box-shadow: 0 0 1.1rem 0.2rem rgba(black, 40%);
 
+    display: flex;
+    flex-direction: column;
+
     img{
         display: block;
     }
 }
 
 .card-heading{
-    height: 1.6rem;
-    -webkit-text-size-adjust: 100%;
-
     font-size: 1.3rem;
     font-weight: bold;
 
-    padding: 0.6rem $card-info-side-spacing 0;
+    padding: 0.6rem $card-info-side-spacing 0.1rem;
     margin: 0 0;
     background: rgba(black, 30%);
 }
 
 .card-description{
+    flex-grow: 3;
+
     font-size: 1rem;
     color: v.$c_mid;
     padding: 0.3rem $card-info-side-spacing 0.75rem;
     margin: 0 0;
-    background: rgba(black, 30%);
-
-    height: 4rem;
+    background: rgba(black, 30%); 
 }
 
 .tech-icon-strip{

@@ -62,7 +62,8 @@
 
         emphasis{
             color: v.$c_lightest;
-            font-family: Roboto-Bold;
+            font-family: Roboto, sans-serif;
+            font-weight: bold;
         }
     }
 }
