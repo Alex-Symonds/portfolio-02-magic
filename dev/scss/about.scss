@@ -11,7 +11,6 @@
 
     h2{
         font-size: 1.2rem;
-        font-family: Roboto, sans-serif;
         font-weight: bold;
         margin: 2rem 0 0 0;
     }
@@ -97,13 +96,6 @@
     color: v.$c_bright;    
 }
 p.aside{
-    padding: 0;
-    margin: 0;
-}
-
-.aside-subheading{
-    font-family: ArchiD, sans-serif;
-    color: v.$c_bright;
     padding: 0;
     margin: 0;
 }

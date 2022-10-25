@@ -62,6 +62,7 @@ $card-info-side-spacing: 0.5rem;
 }
 
 .card-heading{
+    font-family: v.$f_secondary;
     font-size: 1.3rem;
     font-weight: bold;
 
@@ -94,7 +95,6 @@ $card-info-side-spacing: 0.5rem;
     position: relative;
     &:after{
         content: '[ ? ]';
-        font-family: Roboto, sans-serif;
         display: block;
         position: absolute;
         bottom: 2px;
@@ -121,8 +121,7 @@ $card-info-side-spacing: 0.5rem;
     align-items: center;
     width: 100%;
     
-
-    box-sizing: border-box;
+    // box-sizing: border-box;
     margin: 0;
     padding: 0;
 

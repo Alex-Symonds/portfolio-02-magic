@@ -44,7 +44,7 @@
             border: none;
         }
         .subheading{
-            font-family: Ubuntu, sans-serif; 
+            font-family: v.$f_secondary;
             color: v.$c_light;
             font-size: 1.44rem;
             margin: 0;
@@ -62,7 +62,6 @@
 
         emphasis{
             color: v.$c_lightest;
-            font-family: Roboto, sans-serif;
             font-weight: bold;
         }
     }
