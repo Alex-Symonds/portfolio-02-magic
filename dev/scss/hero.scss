@@ -5,24 +5,29 @@
 #hero{
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center;
+    justify-content: space-between;
 
     width: 100%;
 
-    min-height: 38.9rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
+    min-height: 28rem;    // Case: weirdly stubby screen = prevent bunched up mess (max-content doesn't like the absolute positioning)
     height: 100vh;        // "Normally" #hero should be full-screen, pushing #projects off screen
     max-height: 1000px;   // Case: weirdly tall screen / zoomed out = allow all pages on screen at once
+
+    box-sizing: border-box;
+    padding: 0 0 7vh;
 }
 
 .hero-content{
+    padding-top: 3.4rem; // To begin below the fixed nav bar
+    flex-grow: 3;   // For vertical responsiveness
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
     width: 100%;
     max-width: 16.6rem;
-
-    padding-bottom: 6rem;
 
     background: v.$g_rune_glow;
     position: relative;
@@ -31,11 +36,13 @@
     }
     
     .heading{
+        height: 34%; // Adjust this to position the text in narrow-mode
+        width: fit-content; // Allow the subheading to line up with the end of the h1 contents
+
         display: flex;
         flex-direction: column;
-        align-content: flex-end;
-
-        margin-top: 10rem;
+        align-content: center;
+        justify-content: flex-end;
 
         h1{
             font-size: 2.25rem;
@@ -54,8 +61,12 @@
     }
 
     .tagline{
+        display: flex;
+        justify-content: center;
+
         font-size: 1rem;
-        margin-top: 2.25rem;
+
+        margin-top: 15%; // Adjust this to position the text in narrow-mode
         width: 80%;
         max-width: 20rem;
         text-align: center;
@@ -66,7 +77,6 @@
         }
     }
 }
-
 
 @mixin mask-rune{
     mask-image: url(../images/rune-mask-small.svg);
@@ -91,19 +101,22 @@
     &:before{
         content: '';
         display: block;
-        width: 16.6rem;
+        width: 97.6%;
+        max-width: 16.6rem;
         height: 5.6rem;
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
+        
         background: v.$g_rune_glow;
         @include mask-rune();
     }
     &:after{
         @include m.sparkles();
         @include mask-rune();
-        width: 16.6rem;
+        width: 97.6%;
+        max-width: 16.6rem;
         height: 5.6rem;
     }
 
@@ -120,7 +133,6 @@
             width: 14.4rem;
             height: auto;
         }
-
     }
 }
 
@@ -138,7 +150,7 @@
         }
 
         .heading{
-            margin-top: 16.7rem;
+            height: calc(34% + 2 * 3.8rem); // Adjust this to position the text in wide-mode
     
             h1{
                 font-size: 3.8rem;
@@ -152,6 +164,7 @@
         }
     
         .tagline{
+            margin-top: 8%; // Adjust this to position the text in wide-mode
             font-size: 1.4rem;
         }
     }
@@ -162,7 +175,7 @@
     
         &:before,
         &:after{
-            width: 34rem;
+            max-width: 34rem;
             height: 13.4rem;
             left: calc(50% - 17rem);
             mask-image: url(../images/rune-mask.svg);

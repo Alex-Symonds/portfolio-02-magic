@@ -14,8 +14,6 @@ const PATH_JS_FILES = 'dev/scripts';
 const PATH_DIST_JS = 'dist/static/scripts';
 
 function cssMain(){
-  // return css(PATH_CSS_FILES, PATH_DIST_CSS);
-
   return gulp.src([`${PATH_CSS_FILES}/*.css`])
   .pipe(concat('styles.css'))
   .pipe(cleanCSS())
