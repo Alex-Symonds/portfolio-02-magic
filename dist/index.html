@@ -10,14 +10,16 @@
         <link rel="apple-touch-icon" href="static/images/apple-touch-icon.png">
         <link rel="manifest" href="manifest.webmanifest">
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter">
+
         <script src="static/scripts/main.min.js" type="text/javascript"></script>
 
     </head>
     <body>
-        <div class="whole-page-container">
+        <div class="whole-page-container column">
 
-            <div class="top-bar">
-                <div class="top-bar-contents">
+            <section class="top-bar">
+                <div class="top-bar-contents contents-width">
 
                     <a class="logo hover-icon" href="#hero">
                         <img src="static/images/logo.svg" width="80px" />
@@ -50,13 +52,12 @@
                     </nav>
 
                 </div>
-            </div>
+            </section>
 
-
-            <div class="page-contents">
+            <section class="page-contents">
 
                 <section id="hero">
-                    <div class="hero-content">
+                    <div class="hero-content column">
                         <div class="heading">
                             <h1><span>Alex&nbsp;Symonds</span></h1>
                             <p class="subheading">web&nbsp;developer</span>
@@ -74,287 +75,264 @@
                     </div>
                 </section>
 
+                <section id="projects" class="jumptarget main-section column" tabindex='-1'>
+                    <div class="contents-width column">
+                        <h1>Projects</h1>
+                        <section class="project-card-container">
 
-                <section id="projects" class="jumptarget main-section" tabindex='-1'>
-                    <h1>Projects</h1>
-                    <section class="project-card-container">
-
-                        <article class="card">
-                            <img srcset=" static/images/screenie-adminas-react-header-520px.webp 2x, 
-                                          static/images/screenie-adminas-react-header-260px.webp 260w"
-                                src="static/images/screenie-adminas-react-header-260px.webp" width="260px" alt="Screenshot of Adminas-React" />
-                            <h2 class="card-heading">Adminas-React</h2>
-                            <p class="card-description">Refactored a suitable page using React. Improved features, design and code.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_js.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_python.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_django_white.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_react.svg" width="28px" alt="" />
-                                </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS, JavaScript, Python, Django, React
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/adminas-react" class="code-link"><span>code</span></a>
-                                <a href="https://alexsymonds.pythonanywhere.com/" class="live-link"><span>live demo</span></a>
-                            </div>
-
-                        </article>
-
-                        <article class="card">
-                            <img srcset="   static/images/screenie-adminas-520px.webp 2x,
-                                            static/images/screenie-adminas-260px.webp 260w"
-                                src="static/images/screenie-adminas-260px.webp" width="260px" alt="Screenshot of Adminas" />
-                            <h2 class="card-heading">Adminas</h2>
-                            <p class="card-description">Order entry program. Check prices and specifications; issue PDF documents.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                <img src="static/images/tech_js.svg" width="28px" alt="" />
-                                <img src="static/images/tech_python.svg" width="28px" alt="" />
-                                <img src="static/images/tech_django_white.svg" width="28px" alt="" />
-                                </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS, JavaScript, Python, Django
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/adminas" class="code-link"><span>code</span></a>
-                                <a href="https://youtu.be/3hbtKM9NA68 " class="live-link"><span>video</span></a>
-                            </div>
-                        </article>
-    
-	                    <article class="card">
-                            <img srcset="   static/images/screenie-minesweeper-520px.webp 2x,
-                                            static/images/screenie-minesweeper-260px.webp 260w"
-                                src="static/images/screenie-minesweeper-260px.webp" width="260px" alt="Screenshot of Minesweeper" />
-
-                                <h2 class="card-heading">Minesweeper</h2>
-                                <p class="card-description">The classic game. Supports mouse, touchscreen and keyboard.</p>
+                            <article class="card">
+                                <img srcset="   static/images/screenie-uikit202200-520px.webp 2x, 
+                                                static/images/screenie-uikit202200-260px.webp 260w"
+                                    src="static/images/screenie-uikit202200-260px.webp" width="260px" alt="Screenshot of UI Kit 2022-00" />
+                                <h2 class="card-heading">UI Kit 2022-00</h2>
+                                <p class="card-description">Turned <a class="card-description_a" href="https://www.figma.com/community/file/817436609226882468">this Figma file</a> into a set of React components. Setup tests in Storybook.</p>
                                 <div class="tech-icon-strip">
                                     <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_js.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_react.svg" width="28px" alt="" />
+                                        <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_react.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_typescript.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_styled-components.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_storybook.svg" width="28px" alt="" aria-hidden="true"/>
                                     </div>
+                                    <p class="visually-hidden">Made with: </p>
                                     <p class="as-text visually-hidden">
-                                        HTML, SCSS, JavaScript, React
+                                        HTML, React, TypeScript, styled&#8209;components, Storybook
                                     </p>
                                 </div>
                                 <div class="card-links">
-                                    <a href="https://github.com/Alex-Symonds/minsweeper" class="code-link">code</a>
-                                    <a href="/minesweeper" class="live-link">live demo</a>
+                                    <a href="https://github.com/Alex-Symonds/uikit-2022-00" class="code-link"><span>code</span></a>
+                                    <a href="https://main--6467820305f602a876c3512e.chromatic.com/" class="live-link"><span>live demo</span></a>
                                 </div>
-                        </article>
-	
-    
-                        <article class="card">
-                            <img srcset="   static/images/screenie-starfleet-520px.webp 2x,
-                                            static/images/screenie-starfleet-260px.webp 260w"
-                                src="static/images/screenie-starfleet-260px.webp" width="260px" alt="Screenshot of Starfleet Secure Comms" />
+                            </article>
 
-                                <h2 class="card-heading">Starfleet Comms</h2>
-                                <p class="card-description">Twitter-like social network with a '90s Star&nbsp;Trek theme. Includes tests and a React component.</p>
+                            <article class="card">
+                                <img srcset="   static/images/screenie-adminas-react-header-520px.webp 2x, 
+                                                static/images/screenie-adminas-react-header-260px.webp 260w"
+                                    src="static/images/screenie-adminas-react-header-260px.webp" width="260px" alt="Screenshot of Adminas-React" />
+                                <h2 class="card-heading">Adminas-React</h2>
+                                <p class="card-description">Refactored a suitable page using React. Improved features, design and code.</p>
                                 <div class="tech-icon-strip">
                                     <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_js.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_python.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_django_white.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_react.svg" width="28px" alt="" />
+                                        <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_scss.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_js.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_python.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_django_white.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_react.svg" width="28px" alt="" aria-hidden="true" />
                                     </div>
+                                    <p class="visually-hidden">Made with: </p>
                                     <p class="as-text visually-hidden">
-                                        HTML, SCSS, JavaScript, Python, Django, (tiny bit of) React
+                                        HTML, SCSS, JavaScript, Python, Django, React
                                     </p>
                                 </div>
                                 <div class="card-links">
-                                    <a href="https://github.com/Alex-Symonds/web50-network" class="code-link">code</a>
-                                    <a href="https://starfleet-comms.fly.dev/" class="live-link">live demo</a>
+                                    <a href="https://github.com/Alex-Symonds/adminas-react" class="code-link"><span>code</span></a>
+                                    <a href="https://alexsymonds.pythonanywhere.com/" class="live-link"><span>live demo</span></a>
                                 </div>
-                        </article>
-    
-                        <article class="card">
-                            <img srcset="   static/images/screenie-portfolio-magic-520px.webp 2x,
-                                            static/images/screenie-portfolio-magic-260px.webp 260w"
-                                src="static/images/screenie-portfolio-magic-260px.webp" width="260px" alt="Screenshot of the home page of this website, with a magic theme" />
-                            <h2 class="card-heading">Portfolio #2: Magic</h2>
-                            <p class="card-description">Latest design including a hamburger menu with keyboard operation.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                <img src="static/images/tech_js.svg" width="28px" alt="" />
-                                </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS, JavaScript
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/portfolio-02-magic" class="code-link">code</a>
-                            </div>
-                        </article>
+                            </article>
 
-                        <article class="card">
-                            <img srcset="   static/images/screenie-portfolio-monsters-520px.webp 2x,
-                                            static/images/screenie-portfolio-monsters-260px.webp 260w"
-                                src="static/images/screenie-portfolio-monsters-260px.webp" width="260px" alt="Screenshot of the home page of this website, with a theme of monsters" />
-                            <h2 class="card-heading">Portfolio #1: Monsters</h2>
-                            <p class="card-description">Responsive nav bar on landing page adjusts around the beam of light.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                <img src="static/images/tech_scss.svg" width="28px" alt="" />
+                            <article class="card">
+                                <img srcset="   static/images/screenie-adminas-520px.webp 2x,
+                                                static/images/screenie-adminas-260px.webp 260w"
+                                    src="static/images/screenie-adminas-260px.webp" width="260px" alt="Screenshot of Adminas" />
+                                <h2 class="card-heading">Adminas</h2>
+                                <p class="card-description">Order entry program. Check prices and specifications; issue PDF documents.</p>
+                                <div class="tech-icon-strip">
+                                    <div class="as-icons">
+                                        <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_scss.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_js.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_python.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_django_white.svg" width="28px" alt="" aria-hidden="true" />
+                                    </div>
+                                    <p class="visually-hidden">Made with: </p>
+                                    <p class="as-text visually-hidden">
+                                        HTML, SCSS, JavaScript, Python, Django
+                                    </p>
                                 </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/portfolio-01" class="code-link">code</a>
-                                <a href="monsters/" class="code-link">live demo</a>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <img srcset="   static/images/screenie-portfolio-doodles-520px.webp 2x,
-                                            static/images/screenie-portfolio-doodles-260px.webp 260w"
-                                src="static/images/screenie-portfolio-doodles-260px.webp" width="260px" alt="Screenshot of the home page of this website, with a doodley theme" />
-                            <h2 class="card-heading">Portfolio #0: Doodles</h2>
-                            <p class="card-description">Responsive lined notepaper effect and scribbley styling (incomplete).</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_scss.svg" width="28px" alt="" />
+                                <div class="card-links">
+                                    <a href="https://github.com/Alex-Symonds/adminas" class="code-link"><span>code</span></a>
+                                    <a href="https://youtu.be/3hbtKM9NA68 " class="live-link"><span>video</span></a>
                                 </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/portfolio-00" class="code-link">code</a>
-                                <a href="doodles/" class="code-link">live demo</a>
-                            </div>
-                        </article>
+                            </article>
+        
+                            <article class="card">
+                                <img srcset="   static/images/screenie-minesweeper-520px.webp 2x,
+                                                static/images/screenie-minesweeper-260px.webp 260w"
+                                    src="static/images/screenie-minesweeper-260px.webp" width="260px" alt="Screenshot of Minesweeper" />
 
-                        <article class="card">
-                            <img srcset="   static/images/screenie-cs50w-commerce-520px.webp 2x,
-                                            static/images/screenie-cs50w-commerce-260px.webp 260w"
-                                src="static/images/screenie-cs50w-commerce-260px.webp" width="260px" alt="Screenshot of Commerce" />
-                            <h2 class="card-heading">Auctions</h2>
-                            <p class="card-description">Mock auction site: create/end auctions, place bids, track auctions, view by category.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_scss.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_python.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_django_white.svg" width="28px" alt="" />
+                                    <h2 class="card-heading">Minesweeper</h2>
+                                    <p class="card-description">The classic game. Supports mouse, touchscreen and keyboard.</p>
+                                    <div class="tech-icon-strip">
+                                        <div class="as-icons">
+                                            <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_scss.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_js.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_react.svg" width="28px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <p class="visually-hidden">Made with: </p>
+                                        <p class="as-text visually-hidden">
+                                            HTML, SCSS, JavaScript, React
+                                        </p>
+                                    </div>
+                                    <div class="card-links">
+                                        <a href="https://github.com/Alex-Symonds/minesweeper-dev" class="code-link">code</a>
+                                        <a href="/minesweeper" class="live-link">live demo</a>
+                                    </div>
+                            </article>
+        
+        
+                            <article class="card">
+                                <img srcset="   static/images/screenie-starfleet-520px.webp 2x,
+                                                static/images/screenie-starfleet-260px.webp 260w"
+                                    src="static/images/screenie-starfleet-260px.webp" width="260px" alt="Screenshot of Starfleet Secure Comms" />
+
+                                    <h2 class="card-heading">Starfleet Comms</h2>
+                                    <p class="card-description">Twitter-like social network with a '90s Star&nbsp;Trek theme. Includes tests and a React component.</p>
+                                    <div class="tech-icon-strip">
+                                        <div class="as-icons">
+                                            <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_scss.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_js.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_python.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_django_white.svg" width="28px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_react.svg" width="28px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <p class="visually-hidden">Made with: </p>
+                                        <p class="as-text visually-hidden">
+                                            HTML, SCSS, JavaScript, Python, Django, (tiny bit of) React
+                                        </p>
+                                    </div>
+                                    <div class="card-links">
+                                        <a href="https://github.com/Alex-Symonds/web50-network" class="code-link">code</a>
+                                        <a href="https://starfleet-comms.fly.dev/" class="live-link">live demo</a>
+                                    </div>
+                            </article>
+
+                            <article class="card">
+                                <img srcset="   static/images/screenie-hallmark-520px.webp 2x,
+                                                static/images/screenie-hallmark-260px.webp 260w"
+                                    src="static/images/screenie-hallmark-260px.webp" width="260px" alt="Screenshot of Commerce" />
+                                <h2 class="card-heading">Hallmark Plot Generator</h2>
+                                <p class="card-description">Generates synopses for new Hallmark movies and displays associated illustrations.</p>
+                                <div class="tech-icon-strip">
+                                    <div class="as-icons">
+                                        <img src="static/images/tech_html.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_css.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_python.svg" width="28px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_flask.svg" width="28px" alt="" aria-hidden="true" />
+                                    </div>
+                                    <p class="visually-hidden">Made with: </p>
+                                    <p class="as-text visually-hidden">
+                                        HTML, CSS, Python, Flask
+                                    </p>
                                 </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, SCSS, Python, Django
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/web50-commerce" class="code-link">code</a>
-                                <a href="https://youtu.be/S7LY346UqSM" class="live-link"><span>video</span></a>
-                            </div>
-                        </article>
-
-                        <article class="card">
-                            <img srcset="   static/images/screenie-hallmark-520px.webp 2x,
-                                            static/images/screenie-hallmark-260px.webp 260w"
-                                src="static/images/screenie-hallmark-260px.webp" width="260px" alt="Screenshot of Commerce" />
-                            <h2 class="card-heading">Hallmark Plot Generator</h2>
-                            <p class="card-description">Generates synopses for new Hallmark movies and displays associated illustrations.</p>
-                            <div class="tech-icon-strip">
-                                <div class="as-icons">
-                                    <img src="static/images/tech_html.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_css.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_python.svg" width="28px" alt="" />
-                                    <img src="static/images/tech_flask.svg" width="28px" alt="" />
+                                <div class="card-links">
+                                    <a href="https://github.com/Alex-Symonds/hallmark" class="code-link">code</a>
+                                    <a href="https://youtu.be/QcSA3JHbgBw" class="live-link"><span>video</span></a>
                                 </div>
-                                <p class="as-text visually-hidden">
-                                    HTML, CSS, Python, Flask
-                                </p>
-                            </div>
-                            <div class="card-links">
-                                <a href="https://github.com/Alex-Symonds/hallmark" class="code-link">code</a>
-                                <a href="https://youtu.be/QcSA3JHbgBw" class="live-link"><span>video</span></a>
-                            </div>
-                        </article>
+                            </article>
 
-                    </section>
+                        </section>
+                    </div>
                 </section>
 
+                <section id="about" class="jumptarget main-section column" tabindex='-1'>
 
-                <section id="about" class="jumptarget main-section" tabindex='-1'>
-                    <h1>About Me</h1>
-                    <section class="about-container">
-                        <p class="about-tagline">Web developer with a background in office administration.</p>
-                        <section>
-                            <h2>Languages and Technologies</h2>
-                            <p class="aside">(my spell book)</p>
+                    <div class="contents-width column">
+                        <h1>About Me</h1>
 
-                            <section class="list-with-icons">
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_react.svg" width="24px" alt="" />
-                                    </div>
-                                    <div class="text">
-                                        React
-                                    </div>
-                                </div>
+                        <section class="about-container">
+                            <p class="about-tagline">Web developer with a background in office administration.</p>
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_js.svg" width="24px" alt="" />
-                                    </div>
-                                    <div class="text">
-                                        JavaScript
-                                    </div>
-                                </div>
+                            <section class="about-techlist">
+                                <h2>Languages and Technologies</h2>
+                                <p class="aside">(my spell book)</p>
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_html.svg" width="24px" alt="" />
-                                    </div>
-                                    <div class="text">
-                                        HTML
-                                    </div>
-                                </div>
+                                <section class="list-with-icons">
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_scss.svg" width="24px" alt="" />
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_react.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            React
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        CSS / SCSS
-                                    </div>
-                                </div>
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_python.svg" width="24px" alt="" />
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_js.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            JavaScript
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        Python
-                                    </div>
-                                </div>
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/tech_django_white.svg" width="24px" alt="" />
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_typescript.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            TypeScript
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        Django
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_html.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            HTML
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_scss.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            CSS / SCSS
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_styled-components.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            styled&#8209;components
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_storybook.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            Storybook
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_python.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            Python
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_django_white.svg" width="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            Django
+                                        </div>
+                                    </div>
+
+                                </section>
 
                                 <p class="de-emphasis">
                                     <span class="aside">Also:</span> VBA, C, SQL, Bootstrap, Flask
@@ -362,56 +340,65 @@
 
                             </section>
 
-                        </section>
-                        <section>
-                            <h2>Connect</h2>
-                            <section class="list-with-icons">
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/map-pin.svg" height="24px" width="24px" alt="Map pin" />
-                                    </div>
-                                    <div class="text">
-                                        <span>Birmingham, United Kingdom</span>
-                                    </div>
-                                </div>
+                            <section class="about-connect">
+                                <h2>Connect</h2>
+                                <section class="list-with-icons">
 
-                                <div class="list-with-icons-row">
-                                    <div class="icon">
-                                        <img src="static/images/mail.svg" height="24px" width="24px" alt="Email icon" />
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/map-pin.svg" height="24px" width="24px" alt="Map pin" />
+                                        </div>
+                                        <div class="text">
+                                            <span class="visually-hidden">Location</span>
+                                            <span>Birmingham, United&nbsp;Kingdom</span>
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        alex.<span style="display:none">s@</span>symonds&#64;gm<span style="display:none">ail</span>ail.com
-                                    </div>
-                                </div>
 
-                                <a class="list-with-icons-row hover-icon" href="https://github.com/Alex-Symonds">
-                                    <div class="icon">
-                                        <img src="static/images/github-colour.svg" height="24px" width="24px" alt="GitHub" />
-                                        <img src="static/images/github-white.svg" height="24px" width="24px" alt="GitHub" />
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/mail.svg" height="24px" width="24px" alt="Email icon" />
+                                        </div>
+                                        <div class="text">
+                                            <span class="visually-hidden">Email</span>
+                                            alex.<span style="display:none" aria-hidden="true">s@</span>symonds&#64;gm<span style="display:none" aria-hidden="true">ail</span>ail.com
+                                        </div>
                                     </div>
-                                    <div class="text">
-                                        <span>Alex-Symonds</span>
-                                    </div>
-                                </a>
 
-                                <a class="list-with-icons-row hover-icon" href="https://linkedin.com/in/alexandra-symonds">
-                                    <div class="icon">
-                                        <img src="static/images/linkedin-logo-colour.png" height="24px" width="24px" alt="LinkedIn" />
-                                        <img src="static/images/linkedin-logo-white.png" height="24px" width="24px" alt="LinkedIn" />
-                                    </div>
-                                    <div class="text">
-                                        <span>alexandra-symonds</span>
-                                    </div>
-                                </a>
+                                    <a class="list-with-icons-row hover-icon" href="https://github.com/Alex-Symonds">
+                                        <div class="icon">
+                                            <img src="static/images/github-colour.svg" height="24px" width="24px" alt="GitHub" />
+                                            <img src="static/images/github-white.svg" height="24px" width="24px" alt="GitHub" />
+                                        </div>
+                                        <div class="text">
+                                            <span class="visually-hidden">GitHub</span>
+                                            <span>Alex-Symonds</span>
+                                        </div>
+                                    </a>
+
+                                    <a class="list-with-icons-row hover-icon" href="https://linkedin.com/in/alexandra-symonds">
+                                        <div class="icon">
+                                            <img src="static/images/linkedin-logo-colour.png" height="24px" width="24px" alt="LinkedIn" />
+                                            <img src="static/images/linkedin-logo-white.png" height="24px" width="24px" alt="LinkedIn" />
+                                        </div>
+                                        <div class="text">
+                                            <span class="visually-hidden">LinkedIn</span>
+                                            <span>alexandra-symonds</span>
+                                        </div>
+                                    </a>
+
+                                </section>
                             </section>
+
+                            <div class="about-doodle">
+                                <img src="static/images/me-hat-rune.svg" width="270px" alt="" aria-hidden="true" />
+                            </div>
+
                         </section>
-                        <div class="about-doodle">
-                            <img src="static/images/me-hat-rune.svg" width="270px" alt="" />
-                        </div>
-                    </section>
+                    </div>
+
                 </section>
 
-            </div>
+            </section>
         </div>
     </body>
 </html>

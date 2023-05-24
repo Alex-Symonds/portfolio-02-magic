@@ -1,30 +1,34 @@
-@use 'variables.scss' as v;
-@use 'main.scss' as m;
-
-
 #about{
-    width: 100%;
     padding: 0 1rem 3rem;
+    width: 100%;
 
-    // Prevent the glowy-sparkles around about-doodle from going outside the lines
-    overflow: hidden;
+    /* 
+        Prevent the sparkle-glow around the doodle from activating scrolling, but otherwise 
+        allow it to display fully ("hidden" does this too, but it doesn't play nicely with 
+        the anchor links and the sticky menu)
+    */
+    overflow: clip;
 
     h2{
         font-size: 1.2rem;
         font-weight: bold;
-        margin: 2rem 0 0 0;
+    }
+
+    .contents-width {
+        align-items: normal;
     }
 }
 
 .about-container{
     position: relative;
-    z-index: 3;
+    z-index: var(--layerMain);
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto 1rem auto auto auto;
     grid-template-areas:
         "about-r1"
+        "."
         "about-r2"
         "about-r3"
         "doodle"
@@ -44,85 +48,78 @@
 
         justify-self: end;
         align-self: end;
-
-        margin: 2rem 0 0 0;
     }
 
 }
 @media screen and (min-width: 625px){
     .about-container{
         grid-template-columns: 50% 50%;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto 1.5rem auto auto auto;
         grid-template-areas:
             "about-r1 about-r1"
+            ". ."
             "about-r2 ."
+            "about-r2 doodle"
             "about-r3 doodle"
         ;
-    
-        .about-doodle{
-            margin: 0 2rem 2rem 0;
-        }
     }
 }
 
 .about-tagline{
-    color: v.$c_lightest;
+    background: $c_tagline_bg;
+    box-shadow: 0 0 1.5rem 0.2rem rgba(black, 10%);
+    color: $c_lightest;
+    font-size: 1rem;
     margin: 0 0.3rem;
     padding: 0.9rem 0.4rem 0.8rem;
-
-    font-size: 1rem;
-
-    text-align: center;
-    background: v.$c_darker;  
-
-    box-shadow: 0 0 1.5rem 0.2rem rgba(black, 10%);
+    text-align: center;  
 }
-@media screen and (min-width: v.$breakpoint_wide_screen){
+@media screen and (min-width: $breakpoint_wide_screen){
     .about-tagline{
-        padding: 0.9rem 0.7rem;
         font-size: 1.2rem;
+        padding: 0.9rem 0.7rem;
     }
 }
 
-.langtechlist{
-    margin-top: 0.5rem;
-    li{
-        padding: 0.15rem 0;
+.about-techlist {
+    padding: 0.875rem 0;
+
+    h2{
+        margin: 0 0 0.125rem 0;
     }
 }
 
-.aside{
+.aside {
     font-family: ArchiD, sans-serif;
-    color: v.$c_bright;    
+    color: $c_bright;    
 }
-p.aside{
+p.aside {
     padding: 0;
     margin: 0;
 }
 
-.de-emphasis{
-    color: v.$c_light;
+.de-emphasis {
+    color: $c_light;
 }
 
-
-
-.list-with-icons{
+.list-with-icons {
     width: 16.1rem;
     max-width: calc(100% - 0.8rem);
-    margin: 0.5rem 0 0 0.8rem;
+    margin: 0.75rem 0 0 1rem;
 
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: 1.9rem;
+    grid-auto-rows: 2.25rem;
 }
 
-.list-with-icons-row{
+.list-with-icons-row {
     display: grid;
     grid-template-columns: 2rem 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
         "connect-icon connect-text"
     ;
+    gap: 0.1875rem;
 
     .icon{
         grid-area: connect-icon;
@@ -141,17 +138,65 @@ p.aside{
 }
 
 a.list-with-icons-row{
-    color: v.$c_lighter;
+    color: #fcffff;
 
     &:hover{
         border-radius: 0.3rem;
-        color: v.$c_lightest;
-        background: rgba(v.$c_darker, 90%);
+        color: $c_lightest;
+        background: rgba($c_darkest, 50%);
     }
 }
 
+.about-connect{
+    background: $c_darker;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 2rem 0.125rem rgba(black, 25%);
+    max-width: 25rem;
+    padding: 0.5rem 0.625rem;
+    
+    position: relative;
+    z-index: var(--layerMain);
+
+    h2{
+        color: #fcffff;
+        margin: 0 0 0 0;
+    }
+
+    .list-with-icons {
+        margin: 0.75rem 0 0 0;
+        max-width: 100%;
+    }
+
+    .list-with-icons-row {
+        width: 100%;
+        gap: 0;
+
+        .text {
+            margin-left: 0.25rem;
+        }
+    }
+}
+@media screen and (min-width: $breakpoint_nav_bar) {
+    .about-connect{
+        padding: 0.875rem 1rem;
+
+        .list-with-icons {
+            margin: 0.75rem 0 0 0.0625rem;
+        }
+
+        .list-with-icons-row {
+            .text {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
+
 .about-doodle{
-    $g_background: radial-gradient(v.$c_darker 1px, v.$c_darkest 15%, transparent 70%);
+    $g_background: radial-gradient($c_darker 1px, $c_darkest 15%, transparent 70%);
+
+    margin-top: 2rem;
 
     position: relative;
     &:before,
@@ -163,7 +208,7 @@ a.list-with-icons-row{
         left: calc(-300px + 150px);
         height: 600px;
         width: 600px;
-        z-index: 1;
+        z-index: var(--layerBgBelow);
     }
     &:before{
         background: $g_background;
@@ -175,12 +220,13 @@ a.list-with-icons-row{
         -webkit-mask-image: $g_background;
     }
 }
-@media screen and (min-width: v.$breakpoint_wide_screen){
+@media screen and (min-width: $breakpoint_doodle_hits_contact){
     .about-doodle{
         img{
             width: 325px;
         }
     }
 }
+
 
 

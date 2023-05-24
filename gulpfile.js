@@ -6,17 +6,24 @@ const { watch } = require('gulp');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 
+const sass = require('gulp-dart-sass');
 
-const PATH_CSS_FILES = 'dev/css';
+const PATH_SCSS_FILES = 'dev/scss';
 const PATH_DIST_CSS = 'dist/static/styles';
 
 const PATH_JS_FILES = 'dev/scripts';
 const PATH_DIST_JS = 'dist/static/scripts';
 
 function cssMain(){
-  return gulp.src([`${PATH_CSS_FILES}/*.css`])
-  .pipe(concat('styles.css'))
+  return gulp.src([
+    `${PATH_SCSS_FILES}/variables.scss`,
+    `${PATH_SCSS_FILES}/main.scss`,
+    `${PATH_SCSS_FILES}/*.scss`,
+  ])
+  .pipe(concat('custom.scss'))
+  .pipe(sass().on('error', sass.logError))
   .pipe(cleanCSS())
+  .pipe(rename('styles.css'))
   .pipe(gulp.dest(PATH_DIST_CSS));
 }
 
@@ -43,7 +50,7 @@ function jsMain() {
 }
 
 exports.default = function(){
-    watch('dev/css/*.css', cssMain);
+    watch('dev/scss/*.scss', cssMain);
     watch('dev/scripts/*js', jsMain);
     watch('dist/monsters/static/css', cssMonsters);
     watch('dist/doodles/static/css', cssDoodles);

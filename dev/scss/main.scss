@@ -1,13 +1,16 @@
 /*
-    Contains CSS rules for:
+    Contains:
+        || Custom fonts
+        || :root
+        || Mixins
         || Tags
         || Page Layout
         || Navigation
         || Main Sections
+        || Visually Hidden & Hover Icon
 */
 
-@use 'variables.scss' as v;
-
+// || Custom fonts
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto-Regular.ttf");
@@ -30,61 +33,29 @@
     src: url("../fonts/Ubuntu-Regular.ttf");
 } 
 
+@font-face {
+    font-family: "Inter";
+    src: url("../fonts/Inter-SemiBold.ttf");
+} 
+
 
 @font-face {
     font-family: "ArchiD";
     src: url("../fonts/ArchitectsDaughter-Regular.ttf");
 } 
 
-// || Tags
-body{
-    background: linear-gradient(v.$c_background 0%, #131b1d 50%, v.$c_background 100%);
-    font-family: v.$f_primary;
-    color: v.$c_lighter;
+// || :root
+:root {
+    --stickyBarHeight: 3.4rem;
 
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
+    --layerBgBelow: 0;
+    --layerBgAbove: 1;
+    --layerMain: 2;
+    --layerFgBelow: 3;
+    --layerFgAbove: 4;
 }
 
-/* Note about z-index
-At time of writing, CSS standards allow a single element's background to be defined as both
-a solid colour and a background image, but not as a gradient and a background image.
-The glowy-sparkles effect uses a gradient for the "glowy" and an image for "sparkles", so 
-this requires use of layered pseudo elements.
-Of course, we don't want the pseudo elements blocking off copy/pasting. So, the plan:
-    > z-index 1 and 2 are for the glowy sparkles background/s
-    > z-index 3 and 4 are for whatever layering is needed for the actual content
-    > z-index 5 is for the fixed nav bar
-*/ 
-h1, h2, a, img, p, ul{
-    position: relative;
-    z-index: 3;
-}
-
-
-h1{
-    font-size: 1.8rem;
-    color: v.$c_lightest;
-    padding-bottom: 0.2rem;
-}
-
-h2{
-    color: v.$c_lightest;
-}
-
-a{
-    text-decoration: none;
-    outline: none;
-
-    &:focus{
-        outline: v.$c_bright dotted 1px;
-    }
-}
-
-[hidden] { display: none !important; }
-
-// Mixins
+// || Mixins
 @mixin visually-hidden{
     position: absolute;
     width: 1px;
@@ -115,16 +86,124 @@ a{
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: var(--layerBgAbove);
 
     background-image: url(../images/beam-sparkles.png);
     background-size: 65%;
 }
 
+// || Tags
+body{
+    background: linear-gradient($c_background 0%, #131b1d 50%, $c_background 100%);
+    font-family: $f_primary;
+    color: $c_lighter;
+
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
 
 
+// Move content-y stuff "above" any sparkles() and other BG layering
+h1, h2, a, img, p, ul{
+    position: relative;
+    z-index: var(--layerMain);
+}
+
+h1{
+    font-size: 1.8rem;
+    color: $c_lightest;
+    padding-bottom: 0.2rem;
+}
+
+h2{
+    color: $c_lighter;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+
+    &:focus{
+        outline: $c_bright dotted 1px;
+    }
+}
 
 
+[hidden] { display: none !important; }
+
+
+// || Page Layout
+.whole-page-container {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.page-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    width: 100%;
+}
+@media screen and (min-width: $breakpoint_min_supported){
+    .page-contents {
+        align-items: center;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contents-width {
+    width: 100%;
+    max-width: $maxWidth;
+}
+
+// || Main Sections
+.jumptarget{
+    scroll-margin-top: var(--stickyBarHeight);
+
+    // The last jumptarget will appear partway down the screen (= undesirable) unless it's at least tall enough 
+    // to fill the screen vertically (excluding the nav bar). Ensure it's always tall enough.
+    &:last-of-type{
+        min-height: calc(var(--vh) - var(--stickyBarHeight));
+    }
+
+    &:focus-visible{
+        outline-style: none;
+    }
+}
+
+.main-section {   
+    border-top: 1px solid $c_darkest;
+    box-sizing: border-box;
+    min-height: calc(var(--vh) - var(--stickyBarHeight));
+    padding-bottom: 2.5rem;
+    width: 100%;
+
+    $g_section: linear-gradient(rgba($c_darkest, 0.60) 0%, rgba($c_darkest, 0.9) 2%, rgba(0,0,0, 0) 80%);
+    position: relative;
+    background: $g_section;
+    &:before{
+        @include sparkles();
+        mask-image: $g_section;
+        -webkit-mask-image: $g_section;
+
+        background-size: 34rem;
+        background-repeat: repeat;
+    }
+}
+@media screen and (min-width: $breakpoint_wide_screen){
+    .main-section {
+        padding-bottom: 5rem;
+    }
+}
+
+// || Visually Hidden & Hover Icon
 .visually-hidden{
     @include visually-hidden;
 }
@@ -142,256 +221,5 @@ a{
         img:last-of-type{
             display: inline-block;
         }
-    }
-}
-
-// || Page Layout
-.whole-page-container{
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    overflow: hidden;
-}
-
-.page-contents{
-    width: 100%;
-    max-width: 60rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-}
-@media screen and (min-width: v.$breakpoint_wide_screen){
-    .page-contents{
-        gap: 5rem;
-    }
-}
-@media screen and (max-width: v.$breakpoint_min_supported){
-    .page-contents{
-        align-items: flex-start;
-    }
-}
-
-// || Navigation
-.top-bar{
-    position: fixed;
-    width: 100%;
-    min-width: 100%;
-    z-index: 5;
-
-    display: flex;
-    justify-content: center;
-
-    background: rgba(v.$c_background_nav, 85%);
-    border-bottom: 1px solid v.$c_darkest;
-    box-shadow: 0 0 2rem 0.5rem rgba(black, 70%);
-}
-
-.top-bar-contents{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    max-width: 60rem;
-
-    padding: 0.2rem 1rem;
-
-    position: relative;
-}
-
-.menu-icon{
-    $c_main: v.$c_lightest;
-    $c_hover: v.$c_light;
-
-    display: block;
-    padding: 0.2rem;
-    width: 1.8rem;
-    height: 1.5rem;
-
-    border-style: none;
-    outline-style: none;
-
-    background: linear-gradient(
-      to bottom, 
-      $c_main, $c_main 20%, 
-      transparent 20%, transparent 40%, 
-      $c_main 40%, $c_main 60%, 
-      transparent 60%, transparent 80%, 
-      $c_main 80%, $c_main 100%
-    );
-
-    &:hover,
-    &:focus,
-    &:active{
-        background: linear-gradient(
-            to bottom, 
-            $c_hover, $c_hover 20%, 
-            transparent 20%, transparent 40%, 
-            $c_hover 40%, $c_hover 60%, 
-            transparent 60%, transparent 80%, 
-            $c_hover 80%, $c_hover 100%
-          );
-    }
-
-    &:focus{
-        outline-width: 1px;
-        outline-style: dotted;
-        outline-color: v.$c_light;
-        outline-offset: 0.3rem;
-    }
-    &:focus:not(:focus-visible){
-        outline-style: none;
-    }
-
-    span{
-        @include visually-hidden;
-    }
-}
-
-.menu-items-container{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: 
-    "nav1 nav1"
-    "nav2 nav2"
-    "nav3 nav3"
-    "nav4-l nav4-r";
-
-    li:nth-of-type(1){
-        grid-area: nav1;
-    }
-    li:nth-of-type(2){
-        grid-area: nav2;
-    }
-    li:nth-of-type(3){
-        grid-area: nav3;
-    }
-    .nav-github{
-        grid-area: nav4-l;
-        a{
-            display: flex;
-            justify-content: flex-end;
-        }
-    }
-    .nav-linkedin{
-        grid-area: nav4-r;
-    }
-
-    position: absolute;
-    top: calc(3.4rem - 2px);
-    right: 0;
-    z-index: 2;
-
-    width: 100%;
-    max-width: 320px;
-    box-sizing: border-box;
-
-    border: 1px solid v.$c_darker;
-    background: v.$c_background;
-
-    margin: 0;
-    padding: 0;
-
-    li{
-        list-style: none;
-        display: flex;
-        align-items: stretch;
-
-        a{
-            flex-grow: 2;
-
-            display: block;
-            color: v.$c_lightest;
-            font-size: 1.2rem;
-            
-            border-bottom: 1px solid v.$c_darker;
-    
-            padding: 0.7rem 1rem;  
-
-            &:hover,
-            &:focus{
-                background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
-                background-size: 50%;
-            }
-        }
-
-        &:focus-visible{
-            position: relative;
-            z-index: 4;
-            outline-width: 1px;
-            outline-style: dotted;
-            outline-color: v.$c_light;
-            a{
-                background: url(../images/beam-sparkles.png) rgba(v.$c_bright, 30%);
-                background-size: 50%;
-            }
-        }
-    }
-
-    li.nav-img{
-        a{
-            border: none;
-            font-size: 0.1rem;
-            line-height: 0.1rem;
-
-            padding: 0.6rem 0.4rem;
-        }
-    }
-}
-
-@media screen and (max-width: 500px){
-    .menu-items-container{
-        max-width: none;
-    }
-}
-
-
-// || Main Sections
-.jumptarget{
-    scroll-margin-top: 3.4rem;
-
-    // The last jumptarget will appear partway down the screen (= undesirable) unless it's at least tall enough 
-    // to fill the screen vertically (excluding the nav bar). Ensure it's always tall enough.
-    &:last-of-type{
-        min-height: calc(100vh - 3.4rem);
-    }
-
-    &:focus-visible{
-        outline-style: none;
-    }
-}
-
-.main-section{
-    $g_section: linear-gradient(rgba(v.$c_darkest, 0.80) 0%, rgba(v.$c_darkest, 1) 2%, rgba(0,0,0, 0) 80%);
-    width: 100%;
-
-    box-sizing: border-box;
-    border-top: 1px solid v.$c_darkest;
-
-    position: relative;
-    &:before{
-        content: '';
-        display: block;
-        height: 100%;
-        width: 100%;
-        
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-
-        background: $g_section;
-    }
-    &:after{
-        @include sparkles();
-        background-size: 45%;
-        mask-image: $g_section;
-        -webkit-mask-image: $g_section;
     }
 }

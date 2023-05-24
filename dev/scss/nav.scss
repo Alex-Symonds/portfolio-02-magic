@@ -1,0 +1,167 @@
+// || Navigation
+.top-bar{
+    position: fixed;
+    width: 100%;
+    min-width: 100%;
+    z-index: var(--layerFgAbove);
+
+    display: flex;
+    justify-content: center;
+
+    min-height: var(--stickyBarHeight);
+    height: var(--stickyBarHeight);
+    max-height: var(--stickyBarHeight);
+    box-sizing: border-box;
+
+    background: rgba($c_background_nav, 85%);
+    border-bottom: 1px solid $c_darkest;
+    box-shadow: 0 0 1rem 0 rgba(black, 80%);
+}
+
+.top-bar-contents{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+
+    position: relative;
+}
+
+.menu-icon{
+    --barColor: #{$c_lightest};
+
+    display: block;
+    padding: 0.2rem;
+    width: 1.8rem;
+    height: 1.5rem;
+
+    border-style: none;
+    outline-style: none;
+
+    background: linear-gradient(
+      to bottom, 
+      var(--barColor), var(--barColor) 20%, 
+      transparent 20%, transparent 40%, 
+      var(--barColor) 40%, var(--barColor) 60%, 
+      transparent 60%, transparent 80%, 
+      var(--barColor) 80%, var(--barColor) 100%
+    );
+
+    &:hover,
+    &:focus,
+    &:active{
+        --barColor: #{$c_light};
+    }
+
+    &:focus{
+        outline-width: 1px;
+        outline-style: dotted;
+        outline-color: $c_light;
+        outline-offset: 0.3rem;
+    }
+    &:focus:not(:focus-visible){
+        outline-style: none;
+    }
+
+    span{
+        @include visually-hidden;
+    }
+}
+
+.menu-items-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: 
+    "nav1 nav1"
+    "nav2 nav2"
+    "nav3 nav3"
+    "nav4-l nav4-r";
+
+    li:nth-of-type(1){
+        grid-area: nav1;
+    }
+    li:nth-of-type(2){
+        grid-area: nav2;
+    }
+    li:nth-of-type(3){
+        grid-area: nav3;
+    }
+    .nav-github{
+        grid-area: nav4-l;
+        a{
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+    .nav-linkedin{
+        grid-area: nav4-r;
+    }
+
+    position: absolute;
+    top: calc(var(--stickyBarHeight) - 2px);
+    right: 0;
+
+    width: 100%;
+    max-width: 320px;
+    box-sizing: border-box;
+
+    border: 1px solid $c_darker;
+    background: $c_background;
+
+    margin: 0;
+    padding: 0;
+
+    li{
+        list-style: none;
+        display: flex;
+        align-items: stretch;
+
+        a{
+            flex-grow: 2;
+
+            display: block;
+            color: $c_lightest;
+            font-size: 1.2rem;
+            
+            border-bottom: 1px solid $c_darker;
+    
+            padding: 0.7rem 1rem;  
+
+            &:hover,
+            &:focus{
+                background: url(../images/beam-sparkles.png) rgba($c_bright, 30%);
+                background-size: 50%;
+            }
+        }
+
+        &:focus-visible{
+            position: relative;
+            z-index: var(--layerFgBelow);
+            outline-width: 1px;
+            outline-style: dotted;
+            outline-color: $c_light;
+            a{
+                background: url(../images/beam-sparkles.png) rgba($c_bright, 30%);
+                background-size: 50%;
+            }
+        }
+    }
+
+    li.nav-img{
+        a{
+            border: none;
+            font-size: 0.1rem;
+            line-height: 0.1rem;
+
+            padding: 0.6rem 0.4rem;
+        }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .menu-items-container{
+        max-width: none;
+    }
+}

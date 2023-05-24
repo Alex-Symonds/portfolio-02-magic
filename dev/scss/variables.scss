@@ -1,6 +1,4 @@
 
-
-
 $c_lightest: white;
 $c_lighter: #ebfffe;
 $c_light: #b2fbff;
@@ -11,7 +9,10 @@ $c_darkest: #0e353e;
 
 $c_bright: #00ffff;
 $c_darker_hover: #207081;
-$c_text_subtle:#588989;   // <- darkest accessible text colour given #0e1719 background (which occurs at a point on the gradient BGs)
+$c_text_card_desc: #b5e1e3;
+$c_text_subtle:#7CABAB; // <- darkest accessible text colour given #0e1719 background (which occurs at a point on the gradient BGs)
+$c_tagline_bg: #164c58;
+
 
 $c_background: #0e1415;
 $c_background_nav: #0b1011;
@@ -21,9 +22,12 @@ $g_rune_glow_darker: linear-gradient(90deg, $c_background 0%, #0b2930 43%, #0b29
 
 $breakpoint_nav_bar: 470px;
 $breakpoint_wide_screen: 690px;
+$breakpoint_doodle_hits_contact: 770px;
 $breakpoint_wide_screen_ends: 1900px;
 $breakpoint_min_supported: 320px;
 
 $f_primary: Roboto, Arial, sans-serif;
-$f_secondary: Ubuntu, Tahoma, sans-serif;
+$f_secondary: Inter, Tahoma, sans-serif;
+$f_jobName: Ubuntu, Tahoma, sans-serif;
 
+$maxWidth: 60rem;

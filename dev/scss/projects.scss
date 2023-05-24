@@ -1,10 +1,9 @@
-@use 'variables.scss' as v;
-@use 'main.scss' as m;
-
 $card-info-side-spacing: 0.5rem;
+$card-width: 260px;
 
 #projects{
-    padding: 0 1rem 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -13,84 +12,96 @@ $card-info-side-spacing: 0.5rem;
     h1{
         align-self: flex-start;
         position: relative;
-        z-index: 3;
-    }
+    } 
 }
+
 
 .project-card-container{
+    --numCardsPerRow: 1;
+    --gap: 1.75rem;
+
     display: flex;
     flex-flow: row wrap;
-    gap: 1.5rem;
+    gap: var(--gap);
 
     position: relative;
-    z-index: 3;
-
-    // Shrink to one card width, so the cards as a group can be centered
-    width: 262px;
+    width: calc( #{$card-width} * var(--numCardsPerRow)   +   var(--gap) * (var(--numCardsPerRow) - 1)  );
+    z-index: var(--layerMain);  
 }
-// Shrink to two card width, so the cards as a group can be centered
 @media screen and (min-width: 596px){
     .project-card-container{
-        width: calc((262px * 2) + 1.5rem);
+        --numCardsPerRow: 2;
     }
 }
-// Shrink to three card width, so the cards as a group can be centered
 @media screen and (min-width: 883px){
     .project-card-container{
-        width: calc((262px * 3) + 3rem);
+        --numCardsPerRow: 3;
     }
 }
 
+
 .card{
-    min-width: 260px;
-    width: 260px;
-    max-width: 260px;
-
-    border-radius: 0.3rem;
-    overflow: hidden;
-
-    border: 1px solid rgba(black, 1%);
-    background: v.$g_rune_glow_darker;
-    box-shadow: 0 0 1.1rem 0.2rem rgba(black, 40%);
+    --bgText: #{rgba(black, 30%)};
 
     display: flex;
     flex-direction: column;
+
+    min-width: $card-width;
+    width: $card-width;
+    max-width: $card-width;
+
+    background: $g_rune_glow_darker;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 1.1rem 0.2rem rgba(black, 40%);
+    box-sizing: border-box;
+    overflow: hidden;
 
     img{
         display: block;
     }
 }
 
+
 .card-heading{
-    font-family: v.$f_secondary;
+    background: var(--bgText);
+    font-family: $f_secondary;
     font-size: 1.3rem;
     font-weight: bold;
-
-    padding: 0.6rem $card-info-side-spacing 0.1rem;
     margin: 0 0;
-    background: rgba(black, 30%);
+    padding: 1rem $card-info-side-spacing 0.1rem; 
 }
+
 
 .card-description{
     flex-grow: 3;
 
+    background: var(--bgText);
+    color: $c_text_card_desc;
     font-size: 1rem;
-    color: v.$c_mid;
-    padding: 0.3rem $card-info-side-spacing 0.75rem;
     margin: 0 0;
-    background: rgba(black, 30%); 
+    padding: 0.75rem $card-info-side-spacing 1.25rem;
 }
+
+
+.card-description_a{
+    text-decoration: underline;
+
+    color: rgb(237, 255, 255);
+    &:visited{
+        color: rgb(189, 252, 252);
+    }
+}
+
 
 .tech-icon-strip{
     display: flex;
 
+    background-image: url(../images/beam-sparkles.png);
+    background-size: 80%;
     box-sizing: border-box;
     padding: 0.5rem $card-info-side-spacing 0.5rem;
     height: 3.5rem;
     width: 100%;
-
-    background-image: url(../images/beam-sparkles.png);
-    background-size: 80%;
 
     position: relative;
     &:after{
@@ -100,58 +111,55 @@ $card-info-side-spacing: 0.5rem;
         bottom: 2px;
         right: 2px;
         font-size: 0.8rem;
-        color: v.$c_text_subtle;
+        color: $c_text_subtle;
     } 
 }
 
+
 .as-icons{
+    align-self: center;
+
     display: flex;
     flex-wrap: wrap;
-    gap: 0.25rem;
-
-    align-self: center;
+    gap: 0.25rem;  
 }
+
 
 .as-text{
     align-self: flex-start;
 
-    line-height: 1.2rem;
-
     display: flex;
     align-items: center;
-    width: 100%;
     
-    // box-sizing: border-box;
+    color: $c_lighter;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
     margin: 0;
     padding: 0;
-
-    font-size: 0.8rem;
-    color: v.$c_lighter;
+    width: 100%;  
 }
 
 
 .card-links{
     display: flex;
     height: 2rem;
-    width: 100%;
     margin: 0 0 0;
-
+    width: 100%;
+    
     a{
         display: flex;
         align-items: center;
         justify-content: center;
 
-        padding: 0 $card-info-side-spacing;
+        background: $c_darker;
+        border-color: #174650;
+        border-style: solid;
+        border-width: 1px 1px 0 0;
         box-sizing: border-box;
-
-        color: v.$c_lightest;
+        color: $c_lightest;
+        padding: 0 $card-info-side-spacing;
         height: 100%;
         width: 100%;
-        border-style: solid;
-        border-color: rgba(black, 20%);
-        border-width: 1px 1px 0 0;
-
-        background: v.$c_darker;
 
         &:nth-of-type(2){
             border-right: none;
@@ -160,12 +168,12 @@ $card-info-side-spacing: 0.5rem;
         &:hover,
         &:focus,
         &:active{
-            background: url(../images/beam-sparkles-small.png) v.$c_darker_hover;
+            background: url(../images/beam-sparkles-small.png) $c_darker_hover;
         }
         &:focus{
             // Prevent the loss of the side of the outline next to the sibling link
             position: relative;
-            z-index: 4;
+            z-index: var(--layerFgBelow);
 
             // Prevent the loss of the sides of the outline up against the borders of the card (which has overflow: hidden)
             outline-offset: -1px;
