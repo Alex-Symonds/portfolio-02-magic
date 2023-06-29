@@ -121,7 +121,11 @@ $card-width: 260px;
         right: 2px;
         font-size: 0.8rem;
         color: $c_text_subtle;
-    } 
+    }
+
+    img {
+        aspect-ratio: 1/1;
+    }
 }
 
 
@@ -189,6 +193,10 @@ $card-width: 260px;
         }
     }
 
+}
+
+.brightImg {
+    filter: brightness(0.98);
 }
 
 
