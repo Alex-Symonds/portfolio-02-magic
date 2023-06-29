@@ -17,15 +17,14 @@ Produce a static website to show off my projects to potential employers which ha
    - Ensured there was a visually-hidden text alternative to the programming icons
 - Used JavaScript to set each section to a minimum height of "a full page", rather than using 100vh, in order to fix responsiveness issues on mobile (with the dynamic address/menu bars) to my satisfaction
 
-#### Design and Content
+## Design and Content
 - More subdued, more professional design
 - The gentle glowy-sparkles made a nice background for my LinkedIn profile (my current test for "do I feel comfortable with how professional this looks?")
 - Decided that since my content will be limited to some project cards and a short About section, it'd make sense to have a single page where you scroll down, rather than separate pages
 - Included JavaScript to switch between icons and text for the language/framework/tools used for each project. This covers the demographic of "people who can see the icons, but don't know what they mean"
 - Made my own icons for HTML and CSS because there weren't any official ones and the unofficial ones with the shield shapes appear to come from an alternative universe where people abbreviate HTML5 and CSS3 to "5 and 3", rather than "HTML and CSS"
-- Edited my "About" section down to a single sentence and a list of programming languages/technologies/frameworks, since I figured that's the key information anyway
 
-#### If I had more time
+## If I had more time
 - Replace the sparkles on the hero image with a particle effect, such that the sparkles appear at the rune then gently float upwards before disappearing around the nav bar
 
 
