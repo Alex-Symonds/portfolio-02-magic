@@ -17,7 +17,7 @@ Produce a static website to show off my projects to potential employers which ha
    - Ensured there was a visually-hidden text alternative to the programming icons
 - Used JavaScript to set each section to a minimum height of "a full page", rather than using 100vh, in order to fix responsiveness issues on mobile (with the dynamic address/menu bars) to my satisfaction
 
-#### Design and Content
+## Design and Content
 - More subdued, more professional design
 - The gentle glowy-sparkles made a nice background for my LinkedIn profile (my current test for "do I feel comfortable with how professional this looks?")
 - Decided that since my content will be limited to some project cards and a short About section, it'd make sense to have a single page where you scroll down, rather than separate pages
