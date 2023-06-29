@@ -117,7 +117,7 @@ h1{
 }
 
 h2{
-    color: $c_lighter;
+    color: $c_lightest;
 }
 
 a{
@@ -166,21 +166,15 @@ a{
 // || Main Sections
 .jumptarget{
     scroll-margin-top: var(--stickyBarHeight);
-
-    // The last jumptarget will appear partway down the screen (= undesirable) unless it's at least tall enough 
-    // to fill the screen vertically (excluding the nav bar). Ensure it's always tall enough.
-    &:last-of-type{
-        min-height: calc(var(--vh) - var(--stickyBarHeight));
-    }
-
     &:focus-visible{
         outline-style: none;
     }
 }
 
 .main-section {   
-    border-top: 1px solid $c_darkest;
+    //border-top: 1px solid $c_darkest;
     box-sizing: border-box;
+    /* Ensure the next section's header is pushed off-page when this section's header is at the top */
     min-height: calc(var(--vh) - var(--stickyBarHeight));
     padding-bottom: 2.5rem;
     width: 100%;

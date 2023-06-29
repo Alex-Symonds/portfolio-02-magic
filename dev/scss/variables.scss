@@ -1,5 +1,5 @@
 
-$c_lightest: white;
+$c_lightest: rgb(253, 255, 255);
 $c_lighter: #ebfffe;
 $c_light: #b2fbff;
 $c_mid: #9ae9e5;
@@ -9,10 +9,9 @@ $c_darkest: #0e353e;
 
 $c_bright: #00ffff;
 $c_darker_hover: #207081;
-$c_text_card_desc: #b5e1e3;
+$c_text_card_desc: #9ee0e3; //#b5e1e3;
 $c_text_subtle:#7CABAB; // <- darkest accessible text colour given #0e1719 background (which occurs at a point on the gradient BGs)
-$c_tagline_bg: #164c58;
-
+$c_textbox_bg: #164c58;
 
 $c_background: #0e1415;
 $c_background_nav: #0b1011;
