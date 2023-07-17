@@ -4,8 +4,8 @@
     align-items: center;
     justify-content: space-between;
 
-    height: var(--vh);    // "Normally" #hero should be full-screen
-    min-height: 28rem;    // Case: weirdly stubby screen = prevent bunched up mess (would've used max-content, but it doesn't like the absolute-positioned children)
+    height: 100svh;         // "Normally" #hero should be full-screen
+    min-height: 28rem;      // Case: weirdly stubby screen = prevent bunched up mess (would've used max-content, but it doesn't like the absolute-positioned children)
     
     box-sizing: border-box;
     padding: 0 0 7vh;
