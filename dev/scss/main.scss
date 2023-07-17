@@ -26,22 +26,26 @@
     font-size: 16px;
     font-style: bold;
     font-weight: 700;
+    font-display: swap;
 } 
 
 @font-face {
     font-family: "Ubuntu";
     src: url("../fonts/Ubuntu-Regular.ttf");
+    font-display: swap;
 } 
 
 @font-face {
     font-family: "Inter";
     src: url("../fonts/Inter-SemiBold.ttf");
+    font-display: swap;
 } 
 
 
 @font-face {
     font-family: "ArchiD";
     src: url("../fonts/ArchitectsDaughter-Regular.ttf");
+    font-display: swap;
 } 
 
 // || :root
@@ -172,10 +176,9 @@ a{
 }
 
 .main-section {   
-    //border-top: 1px solid $c_darkest;
     box-sizing: border-box;
     /* Ensure the next section's header is pushed off-page when this section's header is at the top */
-    min-height: calc(var(--vh) - var(--stickyBarHeight));
+    min-height: 100lvh;
     padding-bottom: 2.5rem;
     width: 100%;
 

@@ -15,7 +15,7 @@ Produce a static website to show off my projects to potential employers which ha
 - I'm interested in accessibility and wanted to start giving it greater consideration in my work, so I:
    - Made the hamburger menu operable via keyboard
    - Ensured there was a visually-hidden text alternative to the programming icons
-- Used JavaScript to set each section to a minimum height of "a full page", rather than using 100vh, in order to fix responsiveness issues on mobile (with the dynamic address/menu bars) to my satisfaction
+- Used lvh and svh units to set height instead of JavaScript, to avoid layout shift
 
 ## Design and Content
 - More subdued, more professional design
