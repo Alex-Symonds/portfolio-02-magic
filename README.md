@@ -25,8 +25,8 @@ Produce a static website to show off my projects to potential employers which ha
 - Made my own icons for HTML and CSS because there weren't any official ones and the unofficial ones with the shield shapes appear to come from an alternative universe where people abbreviate HTML5 and CSS3 to "5 and 3", rather than "HTML and CSS"
 
 ## If I had more time
-- Add more animation. The hamburger menu could use it, in particular
-- Add a separate page for each project with more information
+- Add a separate page for each project, with more information
+
 
 
 
