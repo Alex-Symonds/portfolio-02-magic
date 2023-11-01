@@ -25,6 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.ele.hidden = false;
             menu.ele.addEventListener('keydown', menu.handleKeydown);
             
+            // # Animation support
+            // Since the element was hidden, it's not in the document flow, so CSS transitions won't work.
+            // Making the browser think about its height forces it to repaint, enabling the CSS transition.
+            // The animation for closing the menu needs to delay "hidden" until after the transition is 
+            // complete.
+            const reflow = menu.ele.offsetHeight;
+            menu.ele.classList.add('animateOpen');
+            menu.ele.removeEventListener('transitionend', menu.hideAfterTransition);
+            
             menu.ele.querySelector(':not(\[disabled])').focus();
             menu.selectedId = 0;
 
@@ -32,9 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
             document.addEventListener('click', menu.closeOnClickOutside);
         },
         close: () => {
-            menu.ele.hidden = true;
             menu.ele.removeEventListener('keydown', menu.handleKeydown);
-            
+
+            // Animation support. Remove the class and use an event listener to delay hiding until 
+            // the transition animation is complete
+            menu.ele.classList.remove('animateOpen');
+            menu.ele.addEventListener('transitionend', menu.hideAfterTransition);
+
             menu.selectedId = -1;
 
             menu.opener.setAttribute('aria-expanded', false);
@@ -92,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 menu.open();
                 menu.lockedOpen = true;
             }
+        },
+        hideAfterTransition: function(){
+            menu.ele.removeEventListener('transitionend', menu.hideAfterTransition);
+            menu.ele.hidden = true;
         },
         setEventListeners: function(){
             menu.opener.addEventListener('click', () => {
