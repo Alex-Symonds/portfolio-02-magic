@@ -10,6 +10,18 @@
     box-sizing: border-box;
     padding: 0 0 7vh;
     width: 100%;
+
+    position: relative;
+}
+
+.particles{
+    --pw: 16.6rem;
+
+    position: absolute;
+    top: 0;
+    left: calc(50% - (#{var(--pw)} / 2));
+    width: var(--pw);
+    height: 90vh;
 }
 
 .hero-content{
@@ -22,11 +34,7 @@
 
     // Add the "glowy sparkly column" coming from the rune
     background: $g_rune_glow;
-    position: relative;
-    &::before{
-        @include sparkles();
-    }
-    
+
     .heading{
         height: 34%;        // Adjust this to position the text in narrow-mode
         width: fit-content; // Allow the subheading to line up with the end of the h1 contents
@@ -70,6 +78,7 @@
     }
 }
 
+
 @mixin mask-rune{
     mask-image: url(../images/rune-mask-small.svg);
     -webkit-mask-image: url(../images/rune-mask-small.svg);
@@ -87,8 +96,8 @@
     width: 100%;
     max-width: 17rem;
 
-    // The glow and sparkles must be masked so they don't "poke out" of the bottom/sides of the arcane circle.
-    // Pseudo elements so the masks won't affect anything else.
+    // The glow must be masked so it doesn't "poke out" of the bottom/sides of the arcane circle.
+    // Pseudo element so the mask won't affect anything else.
     position: relative;
     &:before{
         content: '';
@@ -103,13 +112,6 @@
         
         background: $g_rune_glow;
         @include mask-rune();
-    }
-    &:after{
-        @include sparkles();
-        @include mask-rune();
-        width: 97.6%;
-        max-width: 16.6rem;
-        height: 5.6rem;
     }
 
     .rune-perspective-view{
@@ -132,6 +134,13 @@
 @media screen and (min-width: $breakpoint_wide_screen){
     #hero{
         min-height: 54.7rem;    // Case: weirdly stubby screen = prevent bunched up mess (would've used max-content, but it doesn't like the absolute-positioned children)
+    }
+
+    .particles{
+        --pw: 34rem;
+
+        // Stop the JS particles poking out below the rune as well
+        @include mask-rune();
     }
 
     .hero-content{

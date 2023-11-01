@@ -49,7 +49,7 @@ $card-width: 260px;
     width: $card-width;
     max-width: $card-width;
 
-    background: $c_darkest;
+    background: var(--bgText);
     border-radius: 0.3rem;
 
     box-shadow: 0 0 1rem 1rem yellow, 0 0 5rem 5rem red;
@@ -64,7 +64,6 @@ $card-width: 260px;
 
 
 .card-heading{
-    background: var(--bgText);
     font-family: $f_secondary;
     font-size: 1.3rem;
     font-weight: bold;
@@ -76,7 +75,6 @@ $card-width: 260px;
 .card-description{
     flex-grow: 3;
 
-    background: var(--bgText);
     color: $c_text_card_desc;
     font-size: 1rem;
     margin: 0 0;
@@ -93,26 +91,23 @@ $card-width: 260px;
     }
 }
 
+.card_divider{
+    margin: 0;
+    border: 0;
+    border-top: 1px solid $c_darker;
+    width: calc(100% - ($card-info-side-spacing * 2));
+    align-self: center;
+}
+
 
 .tech-icon-strip{
     display: flex;
-
-    background: rgba(0,0,0,0.15);
-
-    --c_outer: #0c2c33;
-    --c_inner: #{$c_darkest};
-    background: linear-gradient(90deg, var(--c_outer) 0%, var(--c_inner) 43%, var(--c_inner) 57%, var(--c_outer) 100%);
     box-sizing: border-box;
     padding: 0.5rem $card-info-side-spacing 0.5rem;
     height: 3.5rem;
     width: 100%;
 
     position: relative;
-    &:before{
-        @include sparkles();
-        background-size: 80%;
-        opacity: 50%;
-    }
     &:after{
         content: '[ ? ]';
         display: block;

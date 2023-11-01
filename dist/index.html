@@ -12,17 +12,16 @@
         <link rel="manifest" href="manifest.webmanifest">
 
         <script src="static/scripts/main.min.js" type="text/javascript"></script>
-
     </head>
     <body>
         <div class="whole-page-container column">
-git add link
+
             <section class="top-bar">
                 <div class="top-bar-contents contents-width">
 
                     <a class="logo hover-icon" href="#hero">
-                        <img src="static/images/logo.svg" alt="" width="80px" />
-                        <img src="static/images/logo-hover.svg" alt="" width="80px" />
+                        <img src="static/images/logo.svg" alt="" width="80px" height="42px" />
+                        <img src="static/images/logo-hover.svg" alt="" width="80px" height="42px" />
                         <span class="visually-hidden">top</span>
                     </a>
 
@@ -57,6 +56,7 @@ git add link
             <section class="page-contents">
 
                 <section id="hero">
+                    <div id="particles-js" class="particles"></div>
                     <div class="hero-content column">
                         <div class="heading">
                             <h1><span>Alex&nbsp;Symonds</span></h1>
@@ -80,23 +80,53 @@ git add link
                         <h1>Projects</h1>
                         <section class="project-card-container">
 
+
+                            <article class="card">
+                                <img srcset="   static/images/screenie-ialitplanner-520px.webp 2x, 
+                                                static/images/screenie-ialitplanner-260px.webp 260w"
+                                    src="static/images/screenie-ialitplanner-260px.webp" width="260px" height="132px" class="brightImg" alt="" />
+                                <h2 class="card-heading">Event&nbsp;Planner&nbsp;(IA:LiT)</h2>
+                                <p class="card-description">Predicts the outcome of a mobile game, factoring in the player's schedule.</p>
+                                <hr class="card_divider" />
+                                <div class="tech-icon-strip">
+                                    <div class="as-icons">
+                                        <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_typescript.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_nextjs.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_tailwindcss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_jest.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                    </div>
+                                    <p class="visually-hidden">Made with: </p>
+                                    <p class="as-text visually-hidden">
+                                        React, TypeScript, Next.js, HTML, TailwindCSS, Jest
+                                    </p>
+                                </div>
+                                <div class="card-links">
+                                    <a href="https://github.com/Alex-Symonds/IALostInTimeEventPlanner" class="code-link"><span>code</span></a>
+                                    <a href="/ialitplanner" class="live-link"><span>live demo</span></a>
+                                </div>
+                            </article>
+
+
                             <article class="card">
                                 <img srcset="   static/images/screenie-uikit202200-520px.webp 2x, 
                                                 static/images/screenie-uikit202200-260px.webp 260w"
-                                    src="static/images/screenie-uikit202200-260px.webp" width="260px" height="132px" class="brightImg" alt="Screenshot of UI Kit 2022-00" />
+                                    src="static/images/screenie-uikit202200-260px.webp" width="260px" height="132px" class="brightImg" alt="" />
                                 <h2 class="card-heading">UI Kit 2022-00</h2>
                                 <p class="card-description">Turned <a class="card-description_a" href="https://www.figma.com/community/file/817436609226882468">this Figma file</a> into a set of React components. Setup tests in Storybook.</p>
+                                <hr class="card_divider" />
                                 <div class="tech-icon-strip">
                                     <div class="as-icons">
-                                        <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_typescript.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_styled-components.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_storybook.svg" width="24px" height="24px" alt="" aria-hidden="true"/>
                                     </div>
                                     <p class="visually-hidden">Made with: </p>
                                     <p class="as-text visually-hidden">
-                                        HTML, React, TypeScript, styled&#8209;components, Storybook
+                                        React, TypeScript, HTML, styled&#8209;components, Storybook
                                     </p>
                                 </div>
                                 <div class="card-links">
@@ -108,21 +138,22 @@ git add link
                             <article class="card">
                                 <img srcset="   static/images/screenie-adminas-react-header-520px.webp 2x, 
                                                 static/images/screenie-adminas-react-header-260px.webp 260w"
-                                    src="static/images/screenie-adminas-react-header-260px.webp" width="260px" height="132px" alt="Screenshot of Adminas-React" />
-                                <h2 class="card-heading">Adminas-React</h2>
-                                <p class="card-description">Refactored a suitable page using React. Improved features, design and code.</p>
+                                    src="static/images/screenie-adminas-react-header-260px.webp" width="260px" height="132px" alt="" />
+                                <h2 class="card-heading">Adminas</h2>
+                                <p class="card-description">Order entry program. Check prices and specifications; issue PDF documents.</p>
+                                <hr class="card_divider" />
                                 <div class="tech-icon-strip">
                                     <div class="as-icons">
+                                        <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_scss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_python.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_django_white.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                     </div>
                                     <p class="visually-hidden">Made with: </p>
                                     <p class="as-text visually-hidden">
-                                        HTML, SCSS, JavaScript, Python, Django, React
+                                        React, JavaScript, HTML, SCSS, Python, Django
                                     </p>
                                 </div>
                                 <div class="card-links">
@@ -132,47 +163,23 @@ git add link
                             </article>
 
                             <article class="card">
-                                <img srcset="   static/images/screenie-adminas-520px.webp 2x,
-                                                static/images/screenie-adminas-260px.webp 260w"
-                                    src="static/images/screenie-adminas-260px.webp" width="260px" height="132px" alt="Screenshot of Adminas" />
-                                <h2 class="card-heading">Adminas</h2>
-                                <p class="card-description">Order entry program. Check prices and specifications; issue PDF documents.</p>
-                                <div class="tech-icon-strip">
-                                    <div class="as-icons">
-                                        <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_scss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_python.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                        <img src="static/images/tech_django_white.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                    </div>
-                                    <p class="visually-hidden">Made with: </p>
-                                    <p class="as-text visually-hidden">
-                                        HTML, SCSS, JavaScript, Python, Django
-                                    </p>
-                                </div>
-                                <div class="card-links">
-                                    <a href="https://github.com/Alex-Symonds/adminas" class="code-link"><span>code</span></a>
-                                    <a href="https://youtu.be/3hbtKM9NA68 " class="live-link"><span>video</span></a>
-                                </div>
-                            </article>
-        
-                            <article class="card">
                                 <img srcset="   static/images/screenie-minesweeper-520px.webp 2x,
                                                 static/images/screenie-minesweeper-260px.webp 260w"
-                                    src="static/images/screenie-minesweeper-260px.webp" width="260px" height="132px" alt="Screenshot of Minesweeper" />
+                                    src="static/images/screenie-minesweeper-260px.webp" width="260px" height="132px" alt="" />
 
                                     <h2 class="card-heading">Minesweeper</h2>
                                     <p class="card-description">The classic game. Supports mouse, touchscreen and keyboard.</p>
+                                    <hr class="card_divider" />
                                     <div class="tech-icon-strip">
                                         <div class="as-icons">
+                                            <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                            <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_scss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                            <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                            <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         </div>
                                         <p class="visually-hidden">Made with: </p>
                                         <p class="as-text visually-hidden">
-                                            HTML, SCSS, JavaScript, React
+                                            React, JavaScript, HTML, SCSS
                                         </p>
                                     </div>
                                     <div class="card-links">
@@ -185,22 +192,22 @@ git add link
                             <article class="card">
                                 <img srcset="   static/images/screenie-starfleet-520px.webp 2x,
                                                 static/images/screenie-starfleet-260px.webp 260w"
-                                    src="static/images/screenie-starfleet-260px.webp" width="260px" height="132px" alt="Screenshot of Starfleet Secure Comms" />
+                                    src="static/images/screenie-starfleet-260px.webp" width="260px" height="132px" alt="" />
 
                                     <h2 class="card-heading">Starfleet Comms</h2>
                                     <p class="card-description">Twitter-like social network with a '90s Star&nbsp;Trek theme. Includes tests and a React component.</p>
+                                    <hr class="card_divider" />
                                     <div class="tech-icon-strip">
                                         <div class="as-icons">
+                                            <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_scss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                            <img src="static/images/tech_js.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_python.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                             <img src="static/images/tech_django_white.svg" width="24px" height="24px" alt="" aria-hidden="true" />
-                                            <img src="static/images/tech_react.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         </div>
                                         <p class="visually-hidden">Made with: </p>
                                         <p class="as-text visually-hidden">
-                                            HTML, SCSS, JavaScript, Python, Django, (tiny bit of) React
+                                            JavaScript, HTML, SCSS, Python, Django
                                         </p>
                                     </div>
                                     <div class="card-links">
@@ -212,19 +219,21 @@ git add link
                             <article class="card">
                                 <img srcset="   static/images/screenie-hallmark-520px.webp 2x,
                                                 static/images/screenie-hallmark-260px.webp 260w"
-                                    src="static/images/screenie-hallmark-260px.webp" width="260px" height="132px" class="brightImg" alt="Screenshot of Commerce" />
+                                    src="static/images/screenie-hallmark-260px.webp" width="260px" height="132px" class="brightImg" alt="" />
                                 <h2 class="card-heading">Plot Generator</h2>
                                 <p class="card-description">Generates synopses for new Hallmark movies and displays associated illustrations.</p>
+                                <hr class="card_divider" />
                                 <div class="tech-icon-strip">
                                     <div class="as-icons">
                                         <img src="static/images/tech_html.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_css.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        <img src="static/images/tech_bootstrap.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_python.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         <img src="static/images/tech_flask.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                     </div>
                                     <p class="visually-hidden">Made with: </p>
                                     <p class="as-text visually-hidden">
-                                        HTML, CSS, Python, Flask
+                                        HTML, CSS, Bootstrap, Python, Flask
                                     </p>
                                 </div>
                                 <div class="card-links">
@@ -244,6 +253,7 @@ git add link
 
                         <section class="about-container">
                             <p class="about-tagline">Web developer with a background in office administration.</p>
+                            
 
                             <section class="about-techlist">
                                 <h2>Languages and Technologies</h2>
@@ -307,10 +317,28 @@ git add link
 
                                     <div class="list-with-icons-row">
                                         <div class="icon">
+                                            <img src="static/images/tech_tailwindcss.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            TailwindCSS
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
                                             <img src="static/images/tech_storybook.svg" width="24px" height="24px" alt="" aria-hidden="true" />
                                         </div>
                                         <div class="text">
                                             Storybook
+                                        </div>
+                                    </div>
+
+                                    <div class="list-with-icons-row">
+                                        <div class="icon">
+                                            <img src="static/images/tech_jest.svg" width="24px" height="24px" alt="" aria-hidden="true" />
+                                        </div>
+                                        <div class="text">
+                                            Jest
                                         </div>
                                     </div>
 
@@ -400,5 +428,7 @@ git add link
 
             </section>
         </div>
+        <script src="static/scripts/particles/particles.js"></script>
+        <script src="static/scripts/particles/app.js"></script>
     </body>
 </html>
