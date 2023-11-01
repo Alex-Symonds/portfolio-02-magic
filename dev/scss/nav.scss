@@ -180,11 +180,6 @@
     }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 @media screen and (max-width: 500px){
     .menu-items-container{
         max-width: none;
