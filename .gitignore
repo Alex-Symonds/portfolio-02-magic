@@ -33,7 +33,8 @@ yarn-error.log*
 # previously included pages that have now been removed, but keeping them jic
 /dist/monsters
 /dist/doodles
-
+/dist/ialitplanner
+/dist/minesweeper
 
 
 

@@ -1,17 +1,30 @@
 #hero{
+    --heroHeight: 100svh;
+    --bPadding: 7vh;
+    --runeHeight: 6rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 
-    height: 100svh;         // "Normally" #hero should be full-screen
+    height: var(--heroHeight);         // "Normally" #hero should be full-screen
     min-height: 28rem;      // Case: weirdly stubby screen = prevent bunched up mess (would've used max-content, but it doesn't like the absolute-positioned children)
     
     box-sizing: border-box;
-    padding: 0 0 7vh;
+    padding: 0 0 var(--bPadding);
     width: 100%;
 
     position: relative;
+}
+
+@mixin mask-rune{
+    mask-image: url(../images/rune-mask-small.svg);
+    -webkit-mask-image: url(../images/rune-mask-small.svg);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
 }
 
 .particles{
@@ -21,7 +34,7 @@
     top: 0;
     left: calc(50% - (#{var(--pw)} / 2));
     width: var(--pw);
-    height: 90vh;
+    height: calc(var(--heroHeight) - var(--bPadding) - var(--runeHeight) / 2 - 1rem);
 }
 
 .hero-content{
@@ -79,18 +92,11 @@
 }
 
 
-@mixin mask-rune{
-    mask-image: url(../images/rune-mask-small.svg);
-    -webkit-mask-image: url(../images/rune-mask-small.svg);
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    mask-size: cover;
-    -webkit-mask-size: cover;
-}
+
 
 .rune-container{
     display: block;
-    height: 6rem;
+    height: var(--runeHeight);
     overflow: hidden;
 
     width: 100%;
@@ -133,14 +139,12 @@
 
 @media screen and (min-width: $breakpoint_wide_screen){
     #hero{
+        --runeHeight: 14.1rem;
         min-height: 54.7rem;    // Case: weirdly stubby screen = prevent bunched up mess (would've used max-content, but it doesn't like the absolute-positioned children)
     }
 
     .particles{
         --pw: 34rem;
-
-        // Stop the JS particles poking out below the rune as well
-        @include mask-rune();
     }
 
     .hero-content{
@@ -172,7 +176,6 @@
     }
 
     .rune-container{
-        height: 14.1rem;
         max-width: 39rem;
     
         &:before,
